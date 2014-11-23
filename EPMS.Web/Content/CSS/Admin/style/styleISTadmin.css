@@ -1,0 +1,419 @@
+﻿.Error {
+color: red !important;
+}
+.ltr {
+    direction: ltr;
+}
+.input[type="checkbox"] {
+    height: 30px;
+    width: 30px;
+}
+td.containerHeight > div { width: 100%;height: 40px; overflow:hidden; }
+
+.DisplayImage {
+    height: 150px;
+    width: 200px;
+}
+.cursorHand {
+    cursor: pointer !important;
+}
+
+.filterrow {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.customwidget {
+  border: 1px solid #c9c9c9;
+  position:relative;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height:50px;
+  box-shadow:0 1px 1px rgba(0, 0, 0, 0.05);
+  background: #fff; 
+  //background: #fafafa url('../img/cream.png') repeat;
+}
+.widget p{
+	margin: 3px 0px 5px 0px !important;
+	line-height: 20px;
+}
+
+.customwidget hr{
+	margin: 8px 0px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+}
+
+.customwidget .table{
+	margin: 0px;
+	width: 100%;
+}
+
+.customwidget .table .btn{
+	font-size: 13px !important;
+}
+
+.customwidget .table-bordered{
+	border-radius: 0px;
+	border: 0px;
+}
+
+.customwidget .table-bordered th{
+	border-bottom: 1px solid #ddd !important;
+}
+
+.customwidget .table-bordered td{
+	border-top: 0px !important;
+	border-bottom: 1px solid #ddd !important;
+	border-radius: 0px !important;
+}
+
+.customwidget .table-bordered td:first-child, .customwidget .table-bordered th:first-child{
+	border-left: 0px;
+}
+
+.customwidget .table-bordered thead:first-child tr:first-child > th:first-child, 
+.customwidget .table-bordered tbody:first-child tr:first-child > td:first-child {
+	border-radius: 0px;
+}
+
+.customwidget.headless .customwidget-head{
+  background: transparent !important;
+  border-bottom:0px !important;
+}
+
+.customwidget.footless .customwidget-head{
+  background: transparent !important;
+  border-top:0px !important;
+}
+
+.customwidget.wblue{
+  background: #436B91 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wblue2{
+  background: #C5CED6 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.worange{
+  background: #F07C6C !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.worange2{
+  background: #F77A52 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.worange3{
+  background: #FF974F !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.stone{
+  background: #A49A87 !important;
+  border:none;
+  color:#333;
+}
+
+.customwidget.wlime{
+  background: #C0CA55 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wpurple{
+  background: #AD5472 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wpurple2{
+  background: #513B5E !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wpurple3{
+  background: #644D52 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wpink{
+  background: #EA2E49 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wlightblue{
+  background: #77C4D3 !important;
+  border:none;
+  color:#fff;
+}
+
+.customwidget.wgrayish{
+  background: #43484D !important;
+}
+
+.customwidget.wgrey{
+  background: #888888 !important;
+}
+
+.customwidget.wyellow{
+  background: #F5E5C0 !important;
+}
+
+.customwidget.wgrayish .customwidget-head{
+  color:#fff;
+  text-shadow:none;
+}
+.customwidget.wblack{
+  background: #fafafa url('../img/black.png') repeat;
+  color: #ddd;
+  border: 1px solid #222;
+}
+
+.customwidget.wblack hr{
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #222;
+}
+
+.customwidget.wblack a{
+	color: #aaa;
+}
+
+.customwidget.wblack a:hover{
+	color: #888;
+}
+
+.customwidget .padd, .modal-body{
+	padding: 13px 15px;
+}
+
+.customwidget .customwidget-head,.modal-header{
+  background-color: #f8f8f8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
+  background: -webkit-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  text-shadow:0px 1px #fff;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+	color: #666;
+	font-size: 14px;
+	font-weight: bold;
+    padding: 8px 15px;
+}
+
+.customwidget.wblack .customwidget-head{
+  background-color: #333;
+  background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#111));
+  background: -webkit-linear-gradient(top, #333, #111);
+  background: -moz-linear-gradient(top, #333, #111);
+  background: -ms-linear-gradient(top, #333, #111);
+  background: -o-linear-gradient(top, #333, #111);
+  background: linear-gradient(top, #333, #111);
+  text-shadow:0px 1px #000;
+  border-bottom: 1px solid #555;
+  border-top: 1px solid #666;
+  box-shadow: inset 0px 1px 1px #444;
+	color: #ccc;
+}
+
+.customwidget .customwidget-head .customwidget-icons i{
+	font-size: 14px;
+	margin: 0px 4px;
+}
+
+.customwidget .customwidget-head .customwidget-icons a{
+	/*color: #aaa;*/
+}
+
+.customwidget .customwidget-head .customwidget-icons a:hover{
+	/*color: #999;*/
+}
+
+.customwidget.wblack .customwidget-head .customwidget-icons i{
+	font-size: 14px;
+	margin: 0px 4px;
+}
+
+.customwidget .customwidget-foot, .modal-footer{
+  background-color: #f8f8f8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
+  background: -webkit-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  text-shadow:0px 1px #fff;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #ccc;
+  padding: 8px 15px;
+  font-size: 12px;
+  color: #555;
+  box-shadow: inset 0px 1px 1px #fff;
+}
+
+.customwidget.wblack .customwidget-foot{
+  background-color: #111;
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+  background: -webkit-linear-gradient(top, #222, #111);
+  background: -moz-linear-gradient(top, #222, #111);
+  background: -ms-linear-gradient(top, #222, #111);
+  background: -o-linear-gradient(top, #222, #111);
+  background: linear-gradient(top, #222, #111);
+  text-shadow:0px 1px #000;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #222;
+  color: #aaa;
+  box-shadow: inset 0px 1px 1px #444;
+}
+
+/* customwidget white extras */
+
+.customwidget .nav-tabs > li a {
+
+}
+
+.customwidget .nav-tabs {
+	margin-bottom: 5px;
+}
+
+.customwidget .tab-content{
+	margin-bottom: 10px;
+}
+
+/* customwidget black extras */
+
+.customwidget.wblack .btn-inverse{
+	border: 1px solid #212121;
+}
+
+.customwidget.wblack a.btn-primary, .customwidget.wblack a.btn-primary:hover, 
+.customwidget.wblack a.btn-warning, .customwidget.wblack a.btn-warning:hover,
+.customwidget.wblack a.btn-danger,  .customwidget.wblack a.btn-danger:hover,
+.customwidget.wblack a.btn-success, .customwidget.wblack a.btn-success:hover,
+.customwidget.wblack a.btn-info,  .customwidget.wblack a.btn-info:hover,
+.customwidget.wblack a.btn-inverse, .customwidget.wblack a.btn-inverse:hover{
+    color: #fff;
+}
+
+.customwidget.wblack .form-actions{
+	border-radius: 5px;
+  background-color: #111;
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+  background: -webkit-linear-gradient(top, #222, #111);
+  background: -moz-linear-gradient(top, #222, #111);
+  background: -ms-linear-gradient(top, #222, #111);
+  background: -o-linear-gradient(top, #222, #111);
+  background: linear-gradient(top, #222, #111);
+	border: 1px solid #111;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+
+.customwidget.wblack h2,
+.customwidget.wblack h3,
+.customwidget.wblack h4,
+.customwidget.wblack h5,
+.customwidget.wblack h6{
+	color: #ddd;
+}
+
+.customwidget.wblack blockquote{
+	border-left: 3px solid #555;
+}
+
+.customwidget.wblack .pagination ul > li > a, .customwidget.wblack .pagination ul > li > span {
+  background-color: #111;
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+  background: -webkit-linear-gradient(top, #222, #111);
+  background: -moz-linear-gradient(top, #222, #111);
+  background: -ms-linear-gradient(top, #222, #111);
+  background: -o-linear-gradient(top, #222, #111);
+  background: linear-gradient(top, #222, #111);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+  border: 1px solid #161616;
+}
+
+.customwidget.wblack .pagination ul > li > a:hover{
+	background: #222;
+}
+
+.customwidget.wblack .table td{
+	border-top: 1px solid #222;
+}
+
+.customwidget.wblack .table tr:hover{
+	background: rgba(255,255,255,0.1);
+}
+
+.customwidget.wblack .nav-tabs > .active > a, .customwidget.wblack .nav-tabs > .active > a:hover {
+	background: #222;
+}
+
+.customwidget.wblack .nav-tabs {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #222;
+}
+
+.customwidget.wblack .nav-tabs > li a {
+   	padding: 5px 10px;
+  	background-color: #111;
+  	background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+ 	background: -webkit-linear-gradient(top, #222, #111);
+  	background: -moz-linear-gradient(top, #222, #111);
+  	background: -ms-linear-gradient(top, #222, #111);
+  	background: -o-linear-gradient(top, #222, #111);
+  	background: linear-gradient(top, #222, #111);
+    border: 1px solid #222;
+    border-bottom: 0px;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    font-weight: bold;
+    margin-right: 5px; 
+}
+
+.customwidget.wblack .nav-tabs > li a:hover {
+    background: #222; 
+}
+
+.customwidget.wblack .nav-tabs > li.active {
+    border-bottom: 0px; 
+}
+
+.customwidget.wblack .nav-tabs > li.active a {
+    color: #fff;
+    background: #333 url('../img/back.png');
+    border-bottom: 0px;
+}
+
+.customwidget.wblack .nav-tabs > li.active a:hover {
+    background: #333 url('../img/back.png');            
+    border-bottom: 0px; 
+}
+
+.customwidget.wblack .tab-content{
+	margin-bottom: 10px;
+}
+
+.sideparpad {
+    padding-top: 45px;
+}

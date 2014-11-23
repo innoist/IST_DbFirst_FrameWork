@@ -1,0 +1,143 @@
+﻿@using System.Web.UI.WebControls
+@using Microsoft.AspNet.Identity
+@model  EPMS.Models.IdentityModels.ViewModels.ProfileViewModel
+@{
+    ViewBag.Title = "User Profile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="mainbar">
+
+    <!-- Page heading -->
+    <div class="page-head">
+        <h2>User Profile</h2>
+
+        <div class="clearfix"></div>
+
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Page heading ends -->
+    <!-- Matter -->
+
+    <div class="matter">
+        <div class="container">
+            <!-- Dashboard Graph starts -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget">
+                        <div class="widget-head">
+                            <div class="pull-left"> You're logged in as <strong>@User.Identity.GetUserName()</strong></div>
+                            <div class="widget-icons pull-right">
+                                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+                                <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="padd">
+                                <!-- Form starts.  -->
+                                @using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    @Html.ValidationSummary(true)
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">First Name</label>
+                                        <div class="col-lg-5">
+                                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control mandatory ltr", @placeholder = "First Name" })
+                                            @Html.ValidationMessageFor(m => m.FirstName)
+                                        </div>
+                                        <div class="col-lg-5" style="position: absolute; left: 50%; ">
+                                            @Html.HiddenFor(model => model.ImageName)
+                                            <img class="DisplayImage" src="@Url.Content(Model.ImagePath)" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Last Name</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control mandatory ltr", @placeholder = "Last Name" })
+                                            @Html.ValidationMessageFor(m => m.LastName)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Email</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control mandatory ltr", @placeholder = "Email", @readonly = "readonly", @style = "border: none;" })
+                                            @Html.ValidationMessageFor(m => m.Email)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Phone Number</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control mandatory ltr", @placeholder = "Phone Number" })
+                                            @Html.ValidationMessageFor(m => m.PhoneNumber)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Address</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control mandatory ltr", @placeholder = "Address" })
+                                            @Html.ValidationMessageFor(m => m.Address)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Qualification</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.Qualification, new { @class = "form-control mandatory", @placeholder = "Qualification" })
+                                            @Html.ValidationMessageFor(m => m.Qualification)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Date of Birth</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control mandatory cursorHand textAlignRight", @placeholder = "Date of Birth" })
+                                            @Html.ValidationMessageFor(m => m.FirstName)
+                                            @*<input type="text" id="DateOfBirth" data-value="التاريخ" />*@
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label textAlignLeft">Photo</label>
+                                        <div class="col-lg-10">
+                                            @Html.TextBoxFor(model => model.UploadImage, new { type = "file", accept = ".jpg,.jpeg,.png" })
+                                            @Html.ValidationMessageFor(model => model.UploadImage, null, new { @class = "Error" })
+                                        </div>
+                                    </div>
+
+                                    <hr />
+                                    <div class="form-group">
+
+
+                                        <div class="col-lg-6">
+                                            <button type="submit" class="btn btn-circle blue">Update</button>
+
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Matter ends -->
+
+</div>
+<link rel="stylesheet" href="~/Content/css/zebra.css" type="text/css" media="screen">
+<script type="text/javascript" src="~/Scripts/App/zebra_datepicker.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#DateOfBirth').Zebra_DatePicker();
+    });
+</script>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c95010ab4c7f4b388dd6fbad549c368d" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="DomainModels.C__MigrationHistory" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DomainModels.AspNetRole" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="DomainModels.AspNetUserClaim" Width="1.5" PointX="8" PointY="2.5" />
+        <EntityTypeShape EntityType="DomainModels.AspNetUserLogin" Width="1.5" PointX="8" PointY="5.25" />
+        <EntityTypeShape EntityType="DomainModels.AspNetUser" Width="1.5" PointX="5.75" PointY="2.125" />
+        <EntityTypeShape EntityType="DomainModels.Attachment" Width="1.5" PointX="3" PointY="28" />
+        <EntityTypeShape EntityType="DomainModels.CaseStatus" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="DomainModels.CaseType" Width="1.5" PointX="0.75" PointY="25.25" />
+        <EntityTypeShape EntityType="DomainModels.Category" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DomainModels.CategoryLog" Width="1.5" PointX="11" PointY="10.125" />
+        <EntityTypeShape EntityType="DomainModels.City" Width="1.5" PointX="3.75" PointY="6.125" />
+        <EntityTypeShape EntityType="DomainModels.DetentionAuthority" Width="1.5" PointX="0.75" PointY="16.125" />
+        <EntityTypeShape EntityType="DomainModels.DetentionLocation" Width="1.5" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="DomainModels.Log" Width="1.5" PointX="8.75" PointY="9" />
+        <EntityTypeShape EntityType="DomainModels.LogCategory" Width="1.5" PointX="8.75" PointY="14.25" />
+        <EntityTypeShape EntityType="DomainModels.Menu" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="DomainModels.MenuRight" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="DomainModels.Prisoner" Width="1.5" PointX="0.75" PointY="10.625" />
+        <AssociationConnector Association="DomainModels.FK_dbo_MenuRight_dbo_AspNetRoles_Role_Id" />
+        <AssociationConnector Association="DomainModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_Attachment_dbo_Prisoner_PrisonerId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" />
+        <AssociationConnector Association="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" />
+        <AssociationConnector Association="DomainModels.FK_dbo_Menu_dbo_Menu_ParentItem_MenuId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_MenuRight_dbo_Menu_Menu_MenuId" />
+        <EntityTypeShape EntityType="DomainModels.PrisonerCaseInfo" Width="1.5" PointX="6" PointY="16.25" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_City_CityId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId" />
+        <AssociationConnector Association="DomainModels.FK_PrisonerCaseInfo_Prisoner" />
+        <EntityTypeShape EntityType="DomainModels.PrisonerAddress" Width="1.5" PointX="3" PointY="11" />
+        <AssociationConnector Association="DomainModels.FK_PrisonerAddress_Prisoner" />
+        <EntityTypeShape EntityType="DomainModels.PrisonerWorkInfo" Width="1.5" PointX="3" PointY="15.75" />
+        <AssociationConnector Association="DomainModels.FK_dbo_PrisonerWorkInfo_dbo_City_CityId" />
+        <AssociationConnector Association="DomainModels.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

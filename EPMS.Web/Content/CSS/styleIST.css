@@ -1,0 +1,163 @@
+﻿.book-form input[type="button"] {
+float: left;
+color: #fff;
+padding: 36px 0px;
+width: 240px;
+background: #30a73f;
+font-size: 16px;
+font-family: 'Open Sans';
+border: none;
+-webkit-border-radius: 7px;
+-moz-border-radius: 7px;
+border-radius: 7px;
+margin-top: 23px;
+margin-left: 20px;
+cursor: pointer;
+}
+.cursorHand {
+    cursor: pointer !important;
+}
+.book-form input[type="button"]:hover {
+  background: #ffb700;
+}
+
+.msg-form input[type="button"] {
+  background: #30a73f;
+  color: #fff;
+  padding: 10px 20px;
+  float: right;
+  font-size: 13px;
+  font-style: italic;
+  border: none;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.msg-form input[type="button"]:hover {
+  background: #ffb700;
+}
+
+.Error {
+border: 1px solid #d29797 !important;
+border-top: 1px solid #ae6767 !important;
+color: #ad6262 !important;
+}
+
+.singlenewspage {
+    margin-top: 168px;
+}
+
+.post-text-detail {
+  color: #8d8d8d;
+  font-size: 13px;
+  height: auto;
+  overflow: hidden;
+}
+
+div#spinner
+{
+    display: none;
+    width:95px;
+    height: 95px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background:url('spinner.gif') no-repeat center transparent;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    /*border:1px solid #666;*/
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index:2;
+    overflow: auto;
+}
+
+/*.view-sixth p {
+    height: 75px;
+}*/
+
+.flexslider .slides img {
+    max-height: 570px !important;
+}
+.blog-boxMain {
+margin: 0 378px 0 0 !important;
+}
+.view-sixth img {
+    max-height: 264px !important;
+    min-height: 264px !important;
+}
+.view-two img {
+    max-height: 190px;
+}
+.widgetHeadBlue {
+    background: #88C1F3 !important;
+    color: white !important;
+    -ms-text-shadow: none !important;
+    text-shadow: none !important;
+}
+.widgetHeadRed {
+    background: #e35b5a !important;
+    color: white !important;
+    -ms-text-shadow: none !important;
+    text-shadow: none !important;
+}
+.widgetHeadGreen {
+    background: #30a73f !important;
+    color: white !important;
+    -ms-text-shadow: none !important;
+    text-shadow: none !important;
+}
+.removeWidgetLRPadding {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+.removeWidgetTDMargin {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.page-head {
+    margin-top: 43px;
+}
+.form-group.required .control-label:after {
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 8px;
+    top: 7px;
+}
+.required .control-label:after {
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 8px;
+    top: 7px;
+}
+.reportDropdown {
+    width: 160px;
+    height: 30px;
+}
+.downloadLink
+{
+    display: inline-block;
+    height: 24px;    
+    vertical-align: middle;
+    width: 36px;
+    background-image: url('../../Images/Gallery/download-brochure.png');	
+}
+.uploadArea {
+    width: 300px;
+margin-left: -15px;
+}
+.dropDownButtonMargins {
+    margin-right: 2px;
+}
+.datepickerArabic {
+    width: 125px;
+    margin-right: 10px;
+}
+#PassportExpiryDate {
+    width: 125px;
+}

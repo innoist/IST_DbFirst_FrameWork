@@ -1,0 +1,162 @@
+﻿@model EPMS.Web.ViewModels.RightsManagement.RightsManagementViewModel
+
+@{
+    ViewBag.Title = "Rights Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mainbar">
+
+    <!-- Page heading -->
+    <div class="page-head">
+        <h2 class="pull-left">Rights Management</h2>
+
+        <div class="clearfix"></div>
+
+
+        <div class="clearfix"></div>
+
+    </div>
+
+    <div class="matter">
+        <div class="container">
+            <!-- Dashboard Graph starts -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget">
+                        @using (Html.BeginForm("RightsManagement", "RolesAdmin"))
+                        {
+                            <div class="widget-head">
+                                <div class="col-sm-12 widget-icons pull-left">
+                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>Screen Rights
+                                    <div class=" pull-right">
+                                        @Html.ActionLink("Save", "PostRightsManagement", new { roleValue = "SelectedRoleValue", selectedList = "SelectedListValues" }, new { @class = "btn btn-success", id = "btnSave" })
+                                    </div>
+                                    @*<a href="#" class="wclose"><i class="fa fa-times"></i></a>*@
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="padd">
+
+                                    @*<h2 class="page-header">Rights Management</h2>*@
+
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+
+                                    <div class="form-horizontal col-sm-12">
+                                        <div class="form-group">
+                                            <div class="col-sm-2" style="margin-top: 7px; text-align: right;">
+                                                <label style="font-weight: bold">Role</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                @Html.DropDownListFor(x => x.SelectedRoleId, new SelectList(Model.Roles, "Id", "Name"), new { @class = " mandatory form-control", onchange = "this.form.submit();" })
+                                            </div>
+                                            <div class="col-sm-2">
+                                                @*                <button type="submit" class="btn btn-primary">Save</button>*@
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <table class="table table-condensed">
+                                                <tbody>
+                                                    @foreach (var item in @Model.Rights.Where(item => item.IsParent))
+                                                    {
+                                                        <tr class="col-sm-12">
+                                                            <td colspan="10">
+                                                                <label style="padding-right: 10px; font-weight: 700">@item.MenuTitle</label>
+                                                                @Html.CheckBoxFor(m => item.IsSelected, new { value = item.MenuId, @class = "parentCheckbox" })
+                                                                @*<input type="checkbox" name="ContentTypeFilter" value="@item.MenuTitle" checked='@(item.IsSelected)' />*@
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="col-sm-12">
+                                                            <td class="col-sm-2"></td>
+                                                            @foreach (var childItems in @Model.Rights.Where(childItem => childItem.ParentId == item.MenuId))
+                                                            {
+
+                                                            <td class="col-sm-2">
+                                                                @Html.CheckBoxFor(m => childItems.IsSelected, new { value = childItems.MenuId, @class = "childCheckbox" })
+                                                                @*<input type="checkbox" name="ContentTypeFilter" value="@childItems.MenuTitle" checked='@(childItems.IsSelected)' />*@
+                                                                <label style="padding-right: 10px;">@childItems.MenuTitle</label>
+                                                            </td>
+
+                                                            foreach (var actions in @Model.Rights.Where(actions => actions.ParentId == childItems.MenuId))
+                                                            {
+                                                                <td class="col-sm-2">
+                                                                    @Html.CheckBoxFor(m => actions.IsSelected, new { value = actions.MenuId, @class = "childCheckbox" })
+                                                                    <label style="padding-right: 10px;">@actions.MenuTitle</label>
+                                                                </td>
+                                                            }
+
+                                                            }
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <script>
+                                            $("#btnSave").click(function (evt) {
+                                                $("#btnSave").prop("href", ProcessValue($("#btnSave").prop("href")));
+                                            });
+
+                                            function ProcessValue(fakedUri) {
+                                                var uri = fakedUri.replace("SelectedRoleValue", $('#SelectedRoleId').val());
+                                                uri = uri.replace("SelectedListValues", getSelectedList());
+                                                return uri;
+                                            }
+
+                                            function getSelectedList() {
+                                                var selectedList = "";
+                                                $("input:checkbox:checked").each(function () {
+                                                    if ($(this).attr('value') != undefined && $(this).attr('value').length > 0) {
+                                                        selectedList += $(this).attr('value') + ",";
+                                                    }
+                                                });
+                                                if (selectedList.length > 1)
+                                                    selectedList = selectedList.substring(0, selectedList.length - 1);
+                                                return selectedList;
+                                            }
+
+                                            // Checkbox Checked event
+                                            $("input:checkbox").on('change', function () {
+                                                var element = $(this);
+                                                // Is Parent
+                                                if (element.hasClass("parentCheckbox")) {
+                                                    var childRow = element.closest("tr").next("tr");
+                                                    $.each(childRow.children().children("input:checkbox"), function (index, child) {
+                                                        $(child).prop('checked', element[0].checked);
+                                                    });
+                                                } else {
+                                                    if (element[0].checked) {
+                                                        element.closest("tr").prev().children().children("input:checkbox").prop('checked', true);
+                                                    } else {
+                                                        var nextCheckboxes = element.parent("td").nextAll().children("input:checkbox");
+                                                        var prevCheckboxes = element.parent("td").prevAll().children("input:checkbox");
+                                                        if (nextCheckboxes.filter(":checked").length === 0 && prevCheckboxes.filter(":checked").length === 0) {
+                                                            element.closest("tr").prev().children().children("input:checkbox").prop('checked', false);
+                                                        }
+                                                    }
+                                                }
+                                            });
+
+                                        </script>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

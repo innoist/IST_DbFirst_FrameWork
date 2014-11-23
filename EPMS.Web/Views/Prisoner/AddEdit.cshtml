@@ -1,0 +1,848 @@
+﻿@model EPMS.Web.ViewModels.Prisoner.PrisonerViewModel
+
+@{
+    ViewBag.Title = "AddEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mainbar">
+    <!-- Page heading -->
+    <div class="page-head">
+        <h2 class="pull-left">Prisoner Information</h2>
+
+        <div class="clearfix"></div>
+
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Page heading ends -->
+    <!-- Matter -->
+
+    <div class="matter">
+        <div class="container">
+            <!-- Dashboard Graph starts -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget">
+
+                        <div class="widget-content">
+                            <div class="padd">
+
+                                @using (Html.BeginForm("AddEdit", "Prisoner", FormMethod.Post, new { @id = "prisonerForm", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                                {
+                                    <div class="widget-head">
+                                        <div class="pull-left"></div>
+                                        <div class="widget-icons pull-right">
+                                            <button id="signupuser" type="submit" class="btn btn-success" onclick="return ValidateFields()">Save</button>
+                                            <a href="~/Prisoner/Index">
+                                                <button id="signupuser" type="button" class="btn btn-primary ">Cancel</button>
+                                            </a>
+                                            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    @Html.AntiForgeryToken()
+
+                                    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+                                    @*@Html.Hidden("PrisonerId", @Model.Prisoner.PrisonerId, new { @id = "PrisonerId", @name = "PrisonerId" })*@
+                                    @Html.HiddenFor(model => model.Prisoner.PrisonerId)
+
+                                    @Html.Hidden("hiddenImprisonmentYear", Model.Prisoner == null ? "0" : Model.Prisoner.PrisonerCaseInfo.ImprisonmentYear, new { @id = "hiddenImprisonmentYear" })
+                                    <div id="tabs">
+                                        <ul>
+                                            <li><a href="#tabs-1">Personal Information</a></li>
+                                            <li><a href="#tabs-2">Address Information</a></li>
+                                            <li><a href="#tabs-3">Work Information</a></li>
+                                            <li><a href="#tabs-4">Case Information</a></li>
+                                            <li><a href="#tabs-5">Documents</a></li>
+                                        </ul>
+                                        <div id="tabs-1">
+                                            <div class="form-group required">
+                                                <label class="col-lg-2 control-label textAlignLeft ">First Name (English)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerFirstNameE, new { @class = "form-control mandatory", @placeholder = "First Name (E)", @id = "FirstName" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerFirstNameE)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Middle Name(English)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerMiddleNameE, new { @class = "form-control mandatory", @placeholder = "Middle Name (E)", @id = "MiddleName" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerMiddleNameE)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Last Name (English)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerLastNameE, new { @class = "form-control mandatory", @placeholder = "Last Name (E)", @id = "LastName" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerLastNameE)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label textAlignLeft">First Name (Arabic)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerFirstNameA, new { @class = "form-control", @placeholder = "First Name (A)" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerFirstNameA)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Middle Name (Arabic)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerMiddleNameA, new { @class = "form-control", @placeholder = "Last Name (A)" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerMiddleNameA)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Last Name (Arabic)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerLastNameA, new { @class = "form-control", @placeholder = "Last Name (A)" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerLastNameA)
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">CNIC Number</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerCnic, new { @class = "form-control", @placeholder = "CNIC Number" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCnic)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Passport Number</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerPassport, new { @class = "form-control", @placeholder = "Passport #" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerPassport)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label textAlignLeft">Passport Expiry (Arabic-Gregorian)</label>
+                                                <div class="col-lg-10">
+                                                    <div class="">
+
+                                                        @Html.TextBoxFor(model => model.Prisoner.PassportExpiryDateArabic, new { @class = "form-control datepickerArabic col-lg-2", onchange = "HijriToGregorian(this,'PassportExpiryDate')", @placeholder = "Hijri Date", @id = "PassportExpiryDateArabic" })
+
+                                                        @Html.TextBoxFor(model => model.Prisoner.PassportExpiryDate, new { @class = "form-control datepicker col-lg-2", @placeholder = "Gregorian Date", @id = "PassportExpiryDate" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PassportExpiryDate)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="tabs-2">
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Province</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.Province, new { @class = "form-control", @placeholder = "Province" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.Province)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">District</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.District, new { @class = "form-control", @placeholder = "District" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.District)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Tehseel</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.Tehseel, new { @class = "form-control", @placeholder = "Tehseel" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.Tehseel)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Post Office/City</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.PostOfficeOrCity, new { @class = "form-control", @placeholder = "PO/City" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.PostOfficeOrCity)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Village</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.Village, new { @class = "form-control", @placeholder = "Village" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.Village)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Home Phone</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.HomePhone, new { @class = "form-control", @placeholder = "Home Phone" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.HomePhone)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Mobile # 1</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.MobilePhone1, new { @class = "form-control", @placeholder = "Mobile" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.MobilePhone1)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Mobile # 2</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerAddress.MobilePhone2, new { @class = "form-control", @placeholder = "Mobile" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.MobilePhone2)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Comments</label>
+                                                <div class="col-lg-10">
+                                                    <div class="">
+                                                        @Html.TextAreaFor(model => model.Prisoner.PrisonerAddress.AddressComments, new { @class = "form-control", @placeholder = "Comments" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerAddress.AddressComments)
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div id="tabs-3">
+                                            <!-- Prisoner Work Information Starts -->
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Country</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.Country, new { @class = "form-control", @placeholder = "Country" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.Country)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">City</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @*@Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.City, new { @class = "form-control", @placeholder = "City" })*@
+                                                        @Html.DropDownListFor(model => model.Prisoner.PrisonerWorkInfo.CityId, new SelectList(Model.Cities, "CityId", "CityName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                    </div>
+                                                    @*@Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.City)*@
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Iqama No.</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.Iqama, new { @class = "form-control", @placeholder = "Iqama" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.Iqama)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Iqama Expiry Date</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.IqamaExpiryDate, new { @class = "form-control datepicker", @placeholder = "Iqama Expiry" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.IqamaExpiryDate)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Job Title</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.JobTitleE, new { @class = "form-control", @placeholder = "Job Title" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.JobTitleE)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Profession</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.ProfessionE, new { @class = "form-control", @placeholder = "Profession" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.ProfessionE)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Job Title (A)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.JobTitleA, new { @class = "form-control", @placeholder = "Job Title (A)" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.JobTitleA)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Profession (A)</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.ProfessionA, new { @class = "form-control", @placeholder = "Profession (A)" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.ProfessionA)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Employer Name</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.EmployerName, new { @class = "form-control", @placeholder = "Employer Name" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.EmployerName)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Employer Address</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.EmployerAddress, new { @class = "form-control", @placeholder = "Employer Address" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.EmployerAddress)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Employer Phone</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerWorkInfo.EmployerPhone, new { @class = "form-control", @placeholder = "Employer Phone" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.EmployerPhone)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Comments</label>
+                                                <div class="col-lg-10">
+                                                    <div class="">
+                                                        @Html.TextAreaFor(model => model.Prisoner.PrisonerWorkInfo.WorkInfoComments, new { @class = "form-control", @placeholder = "Comments" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerWorkInfo.WorkInfoComments)
+                                                </div>
+
+                                            </div>
+                                            <!-- Prisoner Work Information Ends -->
+                                        </div>
+
+                                        <div id="tabs-4">
+                                            <!-- Prisoner Case Information Starts -->
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">File Number</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.FileNumber, new { @class = "form-control", @placeholder = "File Number" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.FileNumber)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Violator's Number</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.ViolatorsNumber, new { @class = "form-control", @placeholder = "Violator's Number" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.ViolatorsNumber)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Lockup Number</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.LockupNumber, new { @class = "form-control", @placeholder = "Lockup Number" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.LockupNumber)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <span class="required">
+                                                    <label class="col-lg-2 control-label textAlignLeft">Detention Date</label>
+                                                </span>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.DetentionDate, new { @class = "form-control datepicker mandatory", @placeholder = "Detention Date", @id = "DetentionDate" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.DetentionDate)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Detention Authority</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.DetentionAuthorityId, new SelectList(Model.DetanAuthorities, "DetentionAuthorityId", "DetentionAuthorityName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.DetentionAuthorityId)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Detention Location</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.DetentionLocationId, new SelectList(Model.DetanLocations, "DetentionLocationId", "DetentionLocationName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.DetentionLocationId)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Case Type</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.CaseTypeId, new SelectList(Model.CaseTypes, "CaseTypeId", "CaseTypeName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CaseTypeId)
+                                                </div>
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Case Status</label>
+                                                <div class="col-lg-2">
+                                                    <div class="">
+                                                        @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.CaseStatusId, new SelectList(Model.CaseStatuses, "CaseStatusId", "CaseStatusName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CaseStatusId)
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="col-lg-2 control-label textAlignLeft">Comments</label>
+                                                <div class="col-lg-10">
+                                                    <div class="">
+                                                        @Html.TextAreaFor(model => model.Prisoner.PrisonerCaseInfo.CaseInfoComments, new { @class = "form-control", @placeholder = "Comments" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CaseInfoComments)
+                                                </div>
+
+                                            </div>
+                                            <!-- Prisoner Case Information Ends -->
+                                            <!-- Prisoner Case if Case Under Trial Starts -->
+                                            <fieldset class="field_set">
+                                                <legend class="legend">Case Under Trial</legend>
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Court Name</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.CourtName, new { @class = "form-control", @placeholder = "Court Name" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CourtName)
+                                                    </div>
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">City</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @*@Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.City, new { @class = "form-control", @placeholder = "City" })*@
+                                                            @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.CityId, new SelectList(Model.Cities, "CityId", "CityName"), "Select", new { @class = "form-control textAlignLeft" })
+                                                        </div>
+                                                        @*@Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.City)*@
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Office #/Bench</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.OfficeOrBench, new { @class = "form-control", @placeholder = "Office/Bench" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.OfficeOrBench)
+                                                    </div>
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Judge/Qazi Name</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.QaziName, new { @class = "form-control", @placeholder = "Qazi Name" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.QaziName)
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Comments</label>
+                                                    <div class="col-lg-10">
+                                                        <div class="">
+                                                            @Html.TextAreaFor(model => model.Prisoner.PrisonerCaseInfo.CaseUnderTrialComments, new { @class = "form-control", @placeholder = "Comments" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CaseUnderTrialComments)
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                            <!-- Prisoner Case if Case Under Trial Ends -->
+                                            <!-- Prisoner Case if Case Closed Starts -->
+                                            <fieldset class="field_set">
+                                                <legend class="legend">Case Closed</legend>
+                                                <div class="form-group"></div>
+                                                <div class="form-group">
+
+                                                    @*<label class="col-lg-2 control-label textAlignLeft">Imprisonment</label>
+                                                        <div class="col-lg-2">
+                                                            <div class="">
+                                                                @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.ImprisonmentDate, new { @class = "form-control datepicker", @placeholder = "Impr. Date" })
+                                                            </div>
+                                                            @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.ImprisonmentDate)
+                                                        </div>*@
+                                                    <label class="col-lg-2 control-label textAlignLeft">Imprisonment Months</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.ImprisonmentMonth,
+                                                                new List<SelectListItem> {
+                                                                     new SelectListItem { Value = "0" , Text = "Select Months" },
+                                                                     new SelectListItem { Value = "1" , Text = "1 - Month" },
+                                                                     new SelectListItem { Value = "2" , Text = "2 - Months" },
+                                                                     new SelectListItem { Value = "3" , Text = "3 - Months" },
+                                                                     new SelectListItem { Value = "4" , Text = "4 - Months" },
+                                                                     new SelectListItem { Value = "5" , Text = "5 - Months" },
+                                                                     new SelectListItem { Value = "6" , Text = "6 - Months" },
+                                                                     new SelectListItem { Value = "7" , Text = "7 - Months" },
+                                                                     new SelectListItem { Value = "8" , Text = "8 - Months" },
+                                                                     new SelectListItem { Value = "9" , Text = "9 - Months" },
+                                                                     new SelectListItem { Value = "10" , Text = "10 - Months" },
+                                                                     new SelectListItem { Value = "11" , Text = "11 - Months" }
+                                                                 },
+                                                             null, new { @class = "form-control", @id = "ImprisonmentMonth" })
+                                                        </div>
+                                                    </div>
+
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Imprisonment Years</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.ImprisonmentYear,
+                                                        new List<SelectListItem> {
+                                                                     new SelectListItem { Value = "0" , Text = "Select Years" }
+                                                                 },
+        null, new { @class = "form-control ", @id = "ImprisonmentYear", @name = "ImprisonmentYear" })
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Death Sentence?</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.CheckBoxFor(model => model.Prisoner.PrisonerCaseInfo.DeathSentence, new { @class = "chbx" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.DeathSentence)
+                                                    </div>
+                                                    <label class="col-lg-2 control-label textAlignLeft">Release Date</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.ReleaseDate, new { @class = "form-control datepicker", @placeholder = "Release Date", @readonly = "True" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.ReleaseDate)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Penalty</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.Penalty, new { @class = "form-control", @placeholder = "Penalty" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.Penalty)
+                                                    </div>
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Penalty Status</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @*@Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.PenaltyStatus, new { @class = "form-control", @placeholder = "Penalty Status" })*@
+                                                            @Html.DropDownListFor(model => model.Prisoner.PrisonerCaseInfo.PenaltyStatus,
+                                                                  new List<SelectListItem> {
+                                                                       new SelectListItem { Value = "" , Text = "Select" },
+                                                                       new SelectListItem { Value = "Paid" , Text = "Paid" },
+                                                                       new SelectListItem { Value = "Unpaid" , Text = "Unpaid" }
+                                                                    },
+                                                                    new { @class = "form-control textAlignLeft" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.PenaltyStatus)
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="col-lg-2 control-label textAlignLeft">Outpass Issue Date</label>
+                                                    <div class="col-lg-2">
+                                                        <div class="">
+                                                            @Html.TextBoxFor(model => model.Prisoner.PrisonerCaseInfo.OutpassIssueDate, new { @class = "form-control datepicker", @placeholder = "Outpass Issue Date" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.OutpassIssueDate)
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-lg-2 control-label textAlignLeft">Comments</label>
+                                                    <div class="col-lg-10">
+                                                        <div class="">
+                                                            @Html.TextAreaFor(model => model.Prisoner.PrisonerCaseInfo.CaseCloseComments, new { @class = "form-control", @placeholder = "Comments" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(model => model.Prisoner.PrisonerCaseInfo.CaseCloseComments)
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                            <!-- Prisoner Case if Case Closed Ends -->
+                                        </div>
+
+                                        <div id="tabs-5">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Prisoner.AttachmentName, "Name", new { @class = "col-lg-2 control-label textAlignLeft" })
+                                                <div class="">
+                                                    @Html.TextBoxFor(model => model.Prisoner.AttachmentName, new { @class = "form-control", @placeholder = "Enter Attachment Name", @id = "AttachmentName" })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Prisoner.AttachmentName)
+
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Prisoner.UploadFile, "Upload File", new { @class = "col-lg-2 control-label textAlignLeft" })
+                                                <div class="col-md-3">
+                                                    @Html.TextBoxFor(model => model.Prisoner.UploadFile, new { @class = "form-control uploadArea", type = "file", accept = ".pdf,.jpg,.jpeg,.png" })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Prisoner.UploadFile)
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Prisoner.AttachmentComment, "Comment", new { @class = "col-lg-2 control-label textAlignLeft" })
+                                                <div class="">
+                                                    @Html.TextAreaFor(model => model.Prisoner.AttachmentComment, new { @class = "form-control", @placeholder = "Enter Comment here", @id = "AttachmentName" })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Prisoner.AttachmentComment)
+                                            </div>
+                                            <fieldset class="field_set">
+                                                <legend class="legend">Documents</legend>
+                                                <table id="AttachmentsTable" class="table table-striped table-hover dataTable" style="border: 1px solid #ddd !important">
+                                                    <thead>
+                                                        <tr>
+                                                            <th title="File Name">Name</th>
+                                                            <th title="File Comment">Comments</th>
+                                                            <th title="File Created Date">Created Date</th>
+                                                            <th></th>
+                                                        <tr />
+                                                    </thead>
+                                                    <tbody>
+                                                        @if (Model.Prisoner != null && Model.Prisoner.Attachments != null)
+                                                        {
+                                                            foreach (var attachment in Model.Prisoner.Attachments)
+                                                            {
+                                                                <tr>
+                                                                    <td>@attachment.AttachmentName</td>
+                                                                    <td>@attachment.Comment</td>
+                                                                    @*<td>moment(@attachment.CreatedDate).format(""MMM Do YY")</td>*@
+                                                                    <td>@attachment.CreatedDate</td>
+                                                                    <td><a href="@attachment.FilePath" target="_blank" class="downloadLink"></a> </td>
+                                                                </tr>
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </fieldset>
+
+                                        </div>
+
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Matter ends -->
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            autoclose: true
+        });
+        var calendar = $.calendars.instance('islamic');
+        $('.datepickerArabic').calendarsPicker({
+            calendar: calendar,
+            onSelect: function () {
+                $(this).change();
+            }
+        });
+        generateYears();
+        FormatDateFields();
+        //formatDateFields() $("#PassportExpiryDate").val(moment($("#PassportExpiryDate").val()).format("MM/DD/YYYY"));
+        //moment($("#PassportExpiryDate").val());
+    });
+    function FormatDateFields() {
+        var fields = $(".datepicker, .datepickerArabic");
+        for (var i = 0; i < fields.length; i++) {
+            if ($(fields[i]).val() != null && $(fields[i]).val() != "") {
+                $(fields[i]).val(moment($(fields[i]).val()).format("MM/DD/YYYY"));
+            }
+        }
+    }
+    $(function () {
+        $("#tabs").tabs();
+    });
+
+    function ValidateFields() {
+        var missingCounter = 0;
+        var fields = $('.mandatory'); //Array for all textboxes
+        var inCompleteFields = "";
+        for (var i = 0; i < fields.length; i++) {
+            var value = $(fields[i]).val();
+            if (value.toString().length == 0) {
+
+                missingCounter++;
+                $(fields[i]).css('border-color', 'red');
+                inCompleteFields += ($(fields[i]).attr('id') + (i + 1 == fields.length ? "" : ", "));
+            }
+            else
+                $(fields[i]).css('border-color', 'gainsboro');
+        }
+        if (missingCounter > 0) {
+            toastr.error(inCompleteFields, "Please Enter Fields: ");
+            return false;
+        }
+
+        return true;
+    }
+    function generateYears() {
+        var currentYear = new Date().getFullYear();
+        var previousYear = currentYear - 5;
+        var nextYear = currentYear + 5;
+        //var paymentYear = $("#hiddenPaymentYear").val();
+        var imprisonmentYear = $("#hiddenImprisonmentYear").val();
+        for (var i = 1; i <= 20;) {
+            var optionValue = $("<option/>", {
+                value: i,
+                text: (i + " - Years")
+            });
+            if (imprisonmentYear && parseInt(imprisonmentYear) === i) {
+                optionValue.attr('selected', 'selected');
+            }
+            $('#ImprisonmentYear').append(optionValue);
+
+            i = i + 1;
+        }
+    }
+    Date.prototype.defaultView = function () {
+        var dd = this.getDate();
+        if (dd < 10) dd = '0' + dd;
+        var mm = this.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
+        var yyyy = this.getFullYear();
+        return String(mm + "\/" + dd + "\/" + yyyy);
+    }
+    $('#DetentionDate, #ImprisonmentMonth, #ImprisonmentYear').on('change', function () {
+        if (checkRequiredFieldsToUpdateReleaseDate()) {
+            var detentionDate = new Date($('#DetentionDate').val());
+            var imprisonmentMonth = $('#ImprisonmentMonth').val();
+            var imprisonmentYear = $('#ImprisonmentYear').val();
+            detentionDate.setMonth(detentionDate.getMonth() + parseInt(imprisonmentMonth));
+            detentionDate.setFullYear(detentionDate.getFullYear() + parseInt(imprisonmentYear));
+            $('#Prisoner_PrisonerCaseInfo_ReleaseDate').val(detentionDate.defaultView());
+        }
+    });
+
+    function checkRequiredFieldsToUpdateReleaseDate() {
+        var detentionDate = $('#DetentionDate').val();
+        var imprisonmentMonth = $('#ImprisonmentMonth').val();
+        var imprisonmentYear = $('#ImprisonmentYear').val();
+        //if (detentionDate == "" || imprisonmentMonth == "0" || imprisonmentYear== "0") {
+        if (detentionDate == "") {
+            return false;
+        }
+        return true;
+    }
+
+
+
+    function HijriToGregorian(ctl, gregId1, gregId2) {
+        if ($('#PassportExpiryDateArabic').val() == "") {
+            $('#PassportExpiryDate').val("");
+        }
+        else {
+            var splittedDate = $('#PassportExpiryDateArabic').val().split('/');
+            $('#PassportExpiryDateArabic').val(splittedDate[1] + '/' + splittedDate[2] + '/' + splittedDate[0]);
+            var dateToBeChanged = $('#PassportExpiryDateArabic').val();
+            var newDate = ConvertDates(dateToBeChanged, 'islamic', 'gregorian');
+            $('#PassportExpiryDate').val(newDate);
+        }
+    }
+
+    $("#PassportExpiryDate").on("change", function () {
+        if ($('#PassportExpiryDate').val() == "") {
+            $('#PassportExpiryDateArabic').val("");
+        }
+        else {
+            var dateToBeChanged = $('#PassportExpiryDate').val();
+            var newDate = ConvertDates(dateToBeChanged, 'gregorian', 'islamic');
+            $('#PassportExpiryDateArabic').val(newDate);
+        }
+    });
+
+</script>
+<style>
+    .legend {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        border-color: black;
+    }
+
+    input[type="checkbox"] {
+        height: 20px;
+        width: 30px;
+    }
+</style>

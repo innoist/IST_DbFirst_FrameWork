@@ -1,0 +1,56 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using EPMS.Models.MenuModels
+@model EPMS.Web.ViewModels.Common.MenuViewModel
+@{
+    Layout = null;
+}
+
+<ul id="nav" style="padding-top: 45px;">
+    @{
+        if (Model.MenuRights != null)
+        {
+            // loop through menu headers one by one and populate childs
+            foreach (MenuRight header in Model.MenuHeaders.ToList())
+            {
+                <li class="has_sub">
+                    @*class="has_sub"*@
+
+                    <a href="@( (String.IsNullOrEmpty(header.Menu.MenuTargetController)==true) ? "#" : "/"+header.Menu.MenuTargetController +"/"+header.Menu.MenuFunction)">
+                        <i class="@header.Menu.MenuImagePath"></i>
+                        <span>@header.Menu.MenuTitle</span>
+                        <span class="pull-right"><i class="fa fa-chevron-left"></i></span>
+
+                    </a>
+                    <ul>
+
+                        @{
+                // get child items with respect to menu header
+                IList<MenuRight> menuRightchildList = Model.MenuRights.Where(menuright => menuright.Menu.ParentItem != null &&
+                                                                                          menuright.Menu.ParentItem.MenuId == header.Menu.MenuId).ToList();
+                foreach (MenuRight menuRight in menuRightchildList)
+                {
+                    //menuRight.Menu.MenuTargetController + "/" +
+                    // display childs
+                    <li>
+                        @Html.ActionLink(menuRight.Menu.MenuTitle, menuRight.Menu.MenuFunction, menuRight.Menu.MenuTargetController, null, new { @class = Request.Url.ToString().Contains(menuRight.Menu.MenuTargetController + "/" + menuRight.Menu.MenuFunction) == true ? "active innerSelected" : "" })
+                    </li>
+                }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    }
+</ul>
+<script>
+
+    $(document).ready(function () {
+
+        var anchor = $('.innerSelected').closest('ul').closest('li').find('a').first();
+        anchor.addClass('open subdrop');
+        anchor.find('i.fa-chevron-left').removeClass('fa-chevron-left').addClass('fa-chevron-down');
+    });
+
+</script>
+

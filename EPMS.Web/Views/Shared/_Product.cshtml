@@ -1,0 +1,133 @@
+﻿@model EPMS.Web.ViewModels.Products.ProductViewModel
+@using System.Collections.Generic
+@using PagedList.Mvc;
+
+@Html.AntiForgeryToken()
+
+
+@helper SortLink(string name, int id)
+{
+    @Ajax.ActionLink(name, "Index",
+                                        new { Sortby = id, isasc = (id != @Model.ProductSearchRequest.SortBy || (!@Model.ProductSearchRequest.IsAsc)), @Model.ProductSearchRequest.CategoryId, @Model.ProductSearchRequest.PageSize, @Model.ProductSearchRequest.SearchString },
+        new AjaxOptions
+
+        {
+            UpdateTargetId = "gridContent", // <-- DOM element ID to update
+
+            InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+
+            HttpMethod = "GET", // <-- HTTP method
+
+        })
+    if (id == @Model.ProductSearchRequest.SortBy)
+    {
+        <span class="arrow @(@Model.ProductSearchRequest.IsAsc ? "up" : "down")"></span>
+    }
+
+}
+
+
+<div id="gridContent">
+    <input type="hidden" id="SortBy" value="@Model.ProductSearchRequest.SortBy" />
+    <input type="hidden" id="CategoryId" value="@Model.ProductSearchRequest.CategoryId" />
+    <input type="hidden" id="IsAsc" value="@Model.ProductSearchRequest.IsAsc" />
+    <input type="hidden" id="PageSize" value="@Model.ProductSearchRequest.PageSize" />
+    <input type="hidden" id="PageCount" value="@Model.ProductList.PageCount" />
+    <input type="hidden" id="DeleteItemId" value="" />
+    <input type="hidden" id="CurrentPageNumber" value=@Model.ProductSearchRequest.PageNo />
+    <input type="hidden" id="SearchText" value=@Model.ProductSearchRequest.SearchString />
+    <table class="grid-content-table">
+        <tr>
+            <th> @SortLink(@EPMS.Web.Resources.Products.Product.Name, 1) </th>
+            <th> @SortLink(@EPMS.Web.Resources.Products.Product.Description, 2)  </th>
+            <th> @SortLink(@EPMS.Web.Resources.Products.Product.Price, 3)</th>
+            <th> @SortLink(@EPMS.Web.Resources.Products.Product.CategoryName, 4)</th>
+
+            <th class="editdelete">@EPMS.Web.Resources.Shared.Common.EditDelete</th>
+        </tr>
+
+
+        @foreach (var item in Model.ProductList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Description, "Delete", new { id = item.Id })
+
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td class="editdelete">
+
+                    @Html.ActionLink(" ", "Create", new { id = item.Id }, new { @class = "edit" }) |
+                    <a class="delete" href="#" data-delete-id="@item.Id"></a>
+
+                    @*<a class="delete" href="@Url.Action("Delete", new {id = item.Id})"></a>*@
+
+                </td>
+            </tr>
+        }
+        <tfoot id="footer">
+            <tr>
+                <td></td>
+                <td></td>
+                <td>@EPMS.Web.Resources.Products.Product.TotalPrice @Model.TotalPrice</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <br />
+    <div id="myPager">
+        <table id="pager-table">
+            <tr>
+                <td style="width: 15%">@EPMS.Web.Resources.Shared.Common.TotalRecords @Model.TotalNoOfRec</td>
+                <td style="width: 67%">
+                    @Html.PagedListPager(Model.ProductList, PageNo => Url.Action("Index", new { PageNo, @Model.ProductSearchRequest.SortBy, @Model.ProductSearchRequest.IsAsc, @Model.ProductSearchRequest.CategoryId, @Model.ProductSearchRequest.PageSize, @Model.ProductSearchRequest.SearchString }),
+                        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "gridContent" })
+                        )
+                    @*@Html.PagedListPager(Model.ProductList, PageNo => Url.Action("Index",
+                        new { PageNo, @Model.ProductSearchRequest.SortBy, @Model.ProductSearchRequest.IsAsc, @Model.ProductSearchRequest.CategoryId }))*@
+                </td>
+                <td>
+                    @Html.DropDownListFor(m => m.ProductSearchRequest.PageSize, new List<SelectListItem>
+                                                                                {
+                                                                                    new SelectListItem{Text="5",Value="5"},
+                                                                                    new SelectListItem{Text="10",Value="10"},
+                                                                                    new SelectListItem{Text="15",Value="15"},
+                                                                                    new SelectListItem{Text="20",Value="20"}
+                    },
+                      new { @class = "dropdown" })
+
+
+                </td>
+                <td>
+
+
+                    <p>
+                        @EPMS.Web.Resources.Shared.Common.Page @Html.TextBox("PageNo", @Model.ProductSearchRequest.PageNo, null, new { style = "width:40px", id = "UserPageInput" })\@Model.ProductList.PageCount
+                    </p>
+
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ist = window.ist;
+            ist.product.viewModel.initialize();
+        });
+    </script>
+</div>
+

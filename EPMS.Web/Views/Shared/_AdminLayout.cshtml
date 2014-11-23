@@ -1,0 +1,224 @@
+﻿@using System.Configuration
+@using System.Web.Http
+@using EPMS.Web.Helper
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title</title>
+    <!-- Stylesheets -->
+    <link href="~/Content/CSS/Admin/style/bootstrap.css" rel="stylesheet">
+    <!-- Font awesome icon -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/font-awesome.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/jquery-ui-1.9.2.custom.min.css">
+    <!-- Calendar -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/fullcalendar.css">
+    <!-- prettyPhoto -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/prettyPhoto.css">
+    <!-- Star rating -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/rateit.css">
+    <!-- Date picker -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/bootstrap-datetimepicker.min.css">
+    <!-- CLEditor -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/jquery.cleditor.css">
+    <!-- Uniform -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/uniform.default.html">
+    <!-- Uniform -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/daterangepicker-bs3.css" />
+    <!-- Bootstrap toggle -->
+    <link rel="stylesheet" href="~/Content/CSS/Admin/style/bootstrap-switch.css">
+    <!-- Main stylesheet -->
+    <link href="~/Content/CSS/Admin/style/style.css" rel="stylesheet">
+    <!-- Widgets stylesheet -->
+    <link href="~/Content/CSS/Admin/style/widgets.css" rel="stylesheet">
+    <!-- Gritter Notifications stylesheet -->
+    <link href="~/Content/CSS/components.css" rel="stylesheet" />
+    <link href="~/Content/CSS/Admin/style/jquery.gritter.css" rel="stylesheet">
+    <link href="~/Content/ClinicAdmin.css" rel="stylesheet">
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/CSS/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/CSS/styleIST.css" rel="stylesheet" />
+    <link href="~/Content/CSS/responsive-tables.css" rel="stylesheet" />
+    <link href="~/Content/CSS/Admin/style/styleISTadmin.css" rel="stylesheet">
+    <link href="~/Content/jquery.calendars.picker.css" rel="stylesheet" />
+    @*<link href="~/Scripts/JqueryCalendar/ui.calendars.picker.css" rel="stylesheet" />*@
+
+    <!-- HTML5 Support for IE -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shim.js"></script>
+    <![endif]-->
+    <!-- Favicon -->
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/App/Admin/js/jquery.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    @*<link href="~/Scripts/App/Admin/js/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />*@
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Scripts/App/architecture.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/Functions/scriptIST.js"></script>
+    <script src="~/Scripts/responsive-tables.js"></script>
+
+    @*<script src="~/Scripts/jquery.jqplugin.1.0.2.min.js"></script>*@
+    <script src="~/Scripts/JqueryCalendar/jquery.plugin.js"></script>
+
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.js"></script>
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.plus.js"></script>  
+    @*<script src="~/Scripts/JqueryCalendar/jquery.calendars.all.js"></script>*@
+    @*<script src="~/Scripts/JqueryCalendar/jquery.calendars-ar.js"></script>*@
+    @*<script src="~/Scripts/JqueryCalendar/jquery.calendars.picker.js"></script>
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.lang.js"></script>*@
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.lang.js"></script>
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.picker.js"></script>
+    <script src="~/Scripts/JqueryCalendar/jquery.calendars.islamic.js"></script>
+
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
+    @*<script src="~/Scripts/App/requireConfig.js"></script>  *@
+
+    
+</head>
+<body>
+    <div>
+        <header>
+            <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+                <div class="container">
+                    <!-- Menu button for smallar screens -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span>Menu</span></button>
+                        <a href="#" class="pull-left menubutton hidden-xs"><i class="fa fa-bars"></i></a>
+                        <!-- Site name for smallar screens -->
+                        <a href="index" class="navbar-brand">Community Welfare, Embassy of Pakistan Riyadh@*<span class="bold">System</span>*@</a>
+                    </div>
+
+                    <!-- Navigation starts -->
+                    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+
+                        <!-- Links -->
+                        @if (@User.Identity.GetUserName() != null && @User.Identity.GetUserName() != "")
+{
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="dropdown pull-right user-data">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    @*<img src='@("~/" + Session[" ProfileImage"])'>*@ Hello <span class="bold">@Session["FullName"]</span> <b class="caret"></b>
+                                </a>
+
+                                <!-- Dropdown menu -->
+                                <ul class="dropdown-menu">
+                                    <li><a href="~/Account/Profile"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a href="~/Account/Manage"><i class="fa fa-cogs"></i> Change Password</a></li>
+                                    <li><a href="~/Account/LogOff"><i class="fa fa-key"></i> Logout</a></li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+}
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content starts -->
+
+        <div class="content">
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-dropdown sideparpad"><a href="#">Navigation</a></div>
+
+                <!--- Sidebar navigation -->
+                <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+                @Html.Action("LoadMenu", "Menu")
+
+            </div>
+            <!-- Sidebar ends -->
+            <div class="">
+                @RenderBody()
+                <div class="clearfix"></div>
+            </div>
+            <!-- Mainbar ends -->
+
+        </div>
+        <!-- Content ends -->
+        <!-- Footer starts -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Copyright info -->
+                        <p class="copy">Copyright &copy; 2014 | <a href="#">Community Welfare, Embassy of Pakistan Riyadh</a> </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <input type="hidden" id="siteURL" value="@(ConfigurationManager.AppSettings["SiteURL"].ToString())" />
+        @if (ViewBag.MessageVM != null)
+        {
+            <input type="hidden" id="Message" value="@ViewBag.MessageVM.Message" />
+            <input type="hidden" id="IsSaved" value="@ViewBag.MessageVM.IsSaved" />
+            <input type="hidden" id="IsUpdated" value="@ViewBag.MessageVM.IsUpdated" />
+            <input type="hidden" id="IsError" value="@ViewBag.MessageVM.IsError" />
+        }
+        <input type="hidden" id="siteURL" value="@(ConfigurationManager.AppSettings["SiteURL"].ToString())" />
+    </div>
+    <!-- Footer ends -->
+    <!-- JS -->
+    @*<script src="js/jquery.js"></script> <!-- jQuery -->*@
+    <script src="~/Scripts/App/Admin/js/bootstrap.js"></script> <!-- Bootstrap -->
+    <script src="~/Scripts/App/Admin/js/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+    <script src="~/Scripts/App/Admin/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+    <script src="~/Scripts/App/Admin/js/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+    <script src="~/Scripts/App/Admin/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+    <script src="~/Scripts/toastr.js"></script>
+    <!-- Morris JS -->
+    @*<script src="~/Scripts/App/Admin/js/raphael-min.js"></script>
+        <script src="~/Scripts/App/Admin/js/morris.min.js"></script>*@
+
+    <!-- jQuery Flot -->
+    @*<script src="~/Scripts/App/Admin/js/excanvas.min.js"></script>
+        <script src="~/Scripts/App/Admin/js/jquery.flot.js"></script>
+        <script src="~/Scripts/App/Admin/js/jquery.flot.resize.js"></script>
+        <script src="~/Scripts/App/Admin/js/jquery.flot.pie.js"></script>
+        <script src="~/Scripts/App/Admin/js/jquery.flot.stack.js"></script>*@
+
+    <!-- jQuery Notification - Noty -->
+    <script src="~/Scripts/App/Admin/js/jquery.noty.js"></script> <!-- jQuery Notify -->
+    <script src="~/Scripts/App/Admin/js/themes/default.js"></script> <!-- jQuery Notify -->
+    <script src="~/Scripts/App/Admin/js/layouts/bottom.js"></script> <!-- jQuery Notify -->
+    <script src="~/Scripts/App/Admin/js/layouts/topRight.js"></script> <!-- jQuery Notify -->
+    <script src="~/Scripts/App/Admin/js/layouts/top.js"></script> <!-- jQuery Notify -->
+    <!-- jQuery Notification ends -->
+    <!-- Daterangepicker -->
+    <script src="~/Scripts/App/Admin/js/moment.min.js"></script>
+    <script src="~/Scripts/App/Admin/js/daterangepicker.js"></script>
+
+    <script src="~/Scripts/App/Admin/js/sparklines.js"></script> <!-- Sparklines -->
+    <script src="~/Scripts/App/Admin/js/jquery.gritter.min.js"></script> <!-- jQuery Gritter -->
+    <script src="~/Scripts/App/Admin/js/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+    <script src="~/Scripts/App/Admin/js/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+    @*<script src="~/Scripts/App/Admin/js/jquery.uniform.min.html"></script> <!-- jQuery Uniform -->*@
+    <script src="~/Scripts/App/Admin/js/jquery.slimscroll.min.js"></script> <!-- jQuery SlimScroll -->
+    <script src="~/Scripts/App/Admin/js/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+    <script src="~/Scripts/App/Admin/js/filter.js"></script> <!-- Filter for support page -->
+    <script src="~/Scripts/App/Admin/js/custom.js"></script> <!-- Custom codes -->
+    <script src="~/Scripts/App/Admin/js/charts.js"></script> <!-- Charts & Graphs -->
+
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    @*<script src="~/Scripts/App/Admin/js/datatables/js/jquery.dataTables.js"></script>*@
+
+    <script src="~/Scripts/App/Admin/js/index.js"></script> <!-- Index Javascripts -->
+</body>
+</html>

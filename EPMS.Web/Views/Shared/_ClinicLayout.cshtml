@@ -1,0 +1,182 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/css/styleIST.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/css/zebra.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/css/jquery.bxslider.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/css/responsive.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/CSS/styleIST.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/Content/simplePagination.css" type="text/css" media="screen">
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    @*<script type="text/javascript" src="~/Scripts/App/jquery.min.js"></script>*@
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!-- html5.js for IE less than 9 -->
+    <!-- css3-mediaqueries.js for IE less than 9 -->
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8-and-down.css" />
+    <![endif]-->
+
+    <title>@ViewBag.Title</title>
+</head>
+<body dir="rtl">
+    <!-- Start Header -->
+    <header>
+        <div id="spinner"></div>
+        <div class="subheader clearfix">
+            <div class="inner-subheader">
+                <div class="phone">966-011-2047784+</div>
+                <div class="subheader2">
+                    <ul>
+                        <li><a href="/Clinic/Index">الرئيسية</a></li>
+                        <li><a href="~/Account/Login">تسجيل دخول</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="upper-header">
+
+                <div class="logo">
+                    <a href="#"><img src="~/Content/Images/logo1.jpg" alt=""></a>
+                </div>
+
+                <!-- Navigation -->
+                <nav id="nav">
+                    <ul id="navlist" class="sf-menu clearfix">
+                        <li class=@ViewBag.HomeMenu>
+                            <a href="~/Clinic/Index">الرئيسية</a>
+
+                        </li>
+
+                        <li class=@ViewBag.OurVision>
+                            <a href="#" title="">من نحن</a>
+                            <ul class="sub-menu">
+                                <li><a href="~/Clinic/OurVision?key=1" title="">رؤيتنا</a></li>
+                                <li><a href="~/Clinic/AboutUs?key=2" title="">نبذة عنا</a></li>
+                            </ul>
+                        </li >
+                        <li class=@ViewBag.Features>
+                            <a href="~/Clinic/Features?key=3" title="">مميزات المركز</a>
+                        </li>
+                        <li class=@ViewBag.Devices>
+                            <a href="~/Clinic/Devices?key=4" title="">الاجهزة المستخدمة</a>
+                        </li>
+                        <li class=@ViewBag.MediaMenu>
+                            <a href="~/Clinic/Media" title="">معرض الصور و الفيديو &nbsp; &nbsp;</a>
+                        </li>
+                        <li class=@ViewBag.ContactMenu>
+                            <a href="~/Clinic/ContactUs" title="">تواصل معنا &nbsp;</a>
+
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Navigation -->
+                <div class="clear"></div>
+            </div>
+            <!-- End Upper Header -->
+        </div>
+        <!-- End Row2 -->
+    </header>
+    <!-- End Header -->
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="inner-footer dark">
+            <div class="about column3">
+                <h4>عنا</h4>
+                <ul>
+                    <li><a href="#">مركز علاج طبيعي مكثف للاطفال ذوي الاعاقة  - باشراف رائد العلاج الطبيعي المكثف للاطفال في العالم العربي الدكتور الشهير / وائل سلام</a></li>
+                </ul>
+
+            </div>
+            <div class="service column5">
+                <h4>موقعنا</h4>
+                <div class="google_map">
+
+
+                    <iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF+%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6&amp;aq=&amp;sll=26.288218,50.20668&amp;sspn=0.032859,0.066047&amp;t=p&amp;g=%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2&amp;ie=UTF8&amp;hq=%D8%B4%D8%A7%D8%B1%D8%B9&amp;hnear=King+Abdul+Aziz,+Riyadh,+Riyadh+Province+Saudi+Arabia&amp;fll=24.699897,46.709404&amp;fspn=0.133186,0.264187&amp;st=104645220268739582178&amp;rq=1&amp;ev=zi&amp;split=1&amp;ll=24.687564,46.741971&amp;spn=0.033294,0.066047&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF+%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6&amp;aq=&amp;sll=26.288218,50.20668&amp;sspn=0.032859,0.066047&amp;t=p&amp;g=%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D9%84%D9%83+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2&amp;ie=UTF8&amp;hq=%D8%B4%D8%A7%D8%B1%D8%B9&amp;hnear=King+Abdul+Aziz,+Riyadh,+Riyadh+Province+Saudi+Arabia&amp;fll=24.699897,46.709404&amp;fspn=0.133186,0.264187&amp;st=104645220268739582178&amp;rq=1&amp;ev=zi&amp;split=1&amp;ll=24.687564,46.741971&amp;spn=0.033294,0.066047" style="color:#fff;text-align:left">خطوات صغيرة</a> in a larger map</small>
+                </div>
+
+            </div>
+
+            <div class="contact column3">
+                <h4>اتصل بنا</h4>
+                <p>info@yoursite.com</p>
+                <p>966-011-2047784+</p>
+                <p>الرياض - حي المرسلات-طريق الامام سعود ( مخرج 9 ) بجوار جافا تايم</p>
+            </div>
+            <div class="clear"></div>
+            <!-- End Contact -->
+            <div id="back-to-top">
+                <a href="#top">الى الاعلى</a>
+            </div>
+        </div>
+        <!-- End inner Footer -->
+        <div class="end-footer">
+            <div class="lastdiv">
+                <div class="copyright">
+                    <a href="http://cr-mind.com/" title="" style="color:white;">Powred By CR3ATIV3MIND -</a> كل الحيقوق محفوطة لمركز خطوات صغيرة 2014
+                </div>
+                <div class="f-socials">
+                    <a href="#"><img src="~/Content/images/feed.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/tweet.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/fcb.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/gplus.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/pin.png" alt=""></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        @if (ViewBag.MessageVM != null)
+        {
+            <input type="hidden" id="Message" value="@ViewBag.MessageVM.Message" />
+            <input type="hidden" id="IsSaved" value="@ViewBag.MessageVM.IsSaved" />
+            <input type="hidden" id="IsUpdated" value="@ViewBag.MessageVM.IsUpdated" />
+            <input type="hidden" id="IsError" value="@ViewBag.MessageVM.IsError" />
+        }
+    </footer>
+    <script src="~/Scripts/App/jquery.flexslider.js"></script>
+    <script src="~/Scripts/App/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/jquery.superfish.js"></script>
+
+
+    <script type="text/javascript" src="~/Scripts/App/zebra_datepicker.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/core.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/script.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+
+    <script src="~/Scripts/App/architecture.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.simplePagination.js"></script>
+    <!-- Mirrored from premiumlayers.com/demos/wecare/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 22 May 2014 09:46:30 GMT -->
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+</body>
+
+
+</html>

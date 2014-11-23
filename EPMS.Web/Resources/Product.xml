@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Product>
+  <DuplicateProductName>Product already exist with this name.</DuplicateProductName>
+  <NotFound>Product not found.Please refresh your page.</NotFound>
+  
+</Product>

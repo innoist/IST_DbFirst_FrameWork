@@ -1,0 +1,106 @@
+﻿@*@model IdentitySample.Models.LoginViewModel*@
+@using EPMS.Models.IdentityModels.ViewModels
+@model EPMS.Models.IdentityModels.ViewModels.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLoginLayout.cshtml";
+    ViewBag.Title = "Log in";
+}
+<div class="admin-form">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Widget starts -->
+                <div class="widget">
+
+                    <!-- Widget head -->
+                    <div class="widget-head">
+                        <i class="icon-lock"></i> Login
+                    </div>
+
+                    <div class="widget-content">
+                        <div class="padd">
+                            <!-- Login form -->
+                            @using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                            {
+                                @Html.AntiForgeryToken()
+    
+                                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputEmail">Email</label>
+                                    <div class="col-lg-9">
+                                       
+                                        @*<input type="text" class="form-control" id="inputEmail" placeholder="Email">*@
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control ", placeholder = "Email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+                                    </div>
+                                  
+                                </div>
+                                <!-- Password -->
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputPassword">Password</label>
+                                    <div class="col-lg-9" >
+                                        @* <input type="password" class="form-control" id="inputPassword" placeholder="Password">*@
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                 
+                                </div>
+                                <!-- Remember me checkbox and sign in button -->
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <div class="checkbox">
+                                            <label style="margin-right:20px; display:none">
+                                                تذكرني @Html.CheckBoxFor(m => m.RememberMe)  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-lg-offset-3">
+                                    <button type="submit" class="btn btn-success">Sign in</button>
+                                    <button type="reset" class="btn btn-danger">Reset</button>
+                                </div>
+                            }
+
+                            <br />
+
+
+                        </div>
+                    </div>
+                    <div class="widget-foot">
+                        @Html.ActionLink("Forgot Password?", "ForgotPassword")
+                        <span style="margin-left: 20px;">
+                            @Html.ActionLink("Register", "RegisterLVAddEdit")
+                        </span>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @*@Html.Partial("_ExternalLoginsListPartial", new IdentitySample.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+            @*@Html.Partial("_ExternalLoginsListPartial")*@
+        </section>
+    </div>
+</div>
+
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+<style>
+    body {
+        background-image: url("Content/Images/Embassy_Logo.png");
+        background-size: 300px 300px;
+        background-position: center;
+    }
+</style>
