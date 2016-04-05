@@ -8,78 +8,43 @@ namespace EPMS.Models.DomainModels
     {
         #region Persisted Properties
 
-        /// <summary>
-        /// Prisoner Id
-        /// </summary>
         public int PrisonerId { get; set; }
-        /// <summary>
-        /// Prisoner First Name English
-        /// </summary>
         public string PrisonerFirstNameE { get; set; }
-        /// <summary>
-        /// Prisoner Middle Name English
-        /// </summary>
         public string PrisonerMiddleNameE { get; set; }
-        /// <summary>
-        /// Prisoner Last Name English
-        /// </summary>
         public string PrisonerLastNameE { get; set; }
-        /// <summary>
-        /// Prisoner First Name Arabic
-        /// </summary>
         public string PrisonerFirstNameA { get; set; }
-        /// <summary>
-        /// Prisoner Middle Name Arabic
-        /// </summary>
         public string PrisonerMiddleNameA { get; set; }
-        /// <summary>
-        /// Prisoner Last Name Arabic
-        /// </summary>
         public string PrisonerLastNameA { get; set; }
-        /// <summary>
-        /// Prisoner CNIC #
-        /// </summary>
         public string PrisonerCnic { get; set; }
-        /// <summary>
-        /// Prisoner Passport #
-        /// </summary>
         public string PrisonerPassport { get; set; }
-        /// <summary>
-        /// Prisoner Passport Expiry
-        /// </summary>
         public DateTime? PassportExpiryDate { get; set; }
-        /// <summary>
-        /// Prisoner Expiry Date Arabic
-        /// </summary>
-        public string PassportExpiryDateArabic { get; set; }
-        /// <summary>
-        /// Record Created By
-        /// </summary>
         public string CreatedBy { get; set; }
-        /// <summary>
-        /// Record Updated By
-        /// </summary>
         public string UpdatedBy { get; set; }
-        /// <summary>
-        /// Record Created Date
-        /// </summary>
         public DateTime? CreatedDate { get; set; }
-        /// <summary>
-        /// Record Updated Date
-        /// </summary>
         public DateTime? UpdatedDate { get; set; }
+        public string PassportExpiryDateArabic { get; set; }
+        public string FatherOrHusbandName { get; set; }
+        public DateTime? PassportIssueDate { get; set; }
+        public string PassportIssuePlace { get; set; }
+        public string PlaceOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string HeightInM { get; set; }
+        public string HeightInCm { get; set; }
+        public string HairColor { get; set; }
+        public string EyeColor { get; set; }
+        public int? Province_ProvinceId { get; set; }
+        public int? Tehseel_TehseelId { get; set; }
+        public int? District_DistrictId { get; set; }
+        public string PersonalInfoComments { get; set; }
         
         #endregion
 
         #region Reference Properties
 
-        public virtual PrisonerAddress PrisonerAddress { get; set; }
-
-        public virtual PrisonerWorkInfo PrisonerWorkInfo { get; set; }
-
+        public virtual ICollection<Attachment> Attachments { get; set; }
         public virtual PrisonerCaseInfo PrisonerCaseInfo { get; set; }
-
-        public virtual ICollection<Attachment> Attachments{ get; set; } 
+        public virtual PrisonerWorkInfo PrisonerWorkInfo { get; set; }
+        public virtual PrisonerAddress PrisonerAddress { get; set; }
     
         #endregion
 

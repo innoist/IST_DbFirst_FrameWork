@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -72,29 +62,7 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Attachment">
-          <Key>
-            <PropertyRef Name="AttachmentId" />
-          </Key>
-          <Property Name="AttachmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PrisonerId" Type="int" Nullable="false" />
-          <Property Name="FileName" Type="nvarchar(max)" />
-          <Property Name="FilePath" Type="nvarchar(max)" />
-          <Property Name="AttachmentName" Type="nvarchar(max)" />
-          <Property Name="Comment" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="CaseStatus">
-          <Key>
-            <PropertyRef Name="CaseStatusId" />
-          </Key>
-          <Property Name="CaseStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CaseStatusName" Type="nvarchar(max)" />
-          <Property Name="CaseStatusDescription" Type="nvarchar(max)" />
+          <Property Name="Blocked" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="CaseType">
           <Key>
@@ -107,6 +75,7 @@
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="CaseCategoryId" Type="int" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -122,37 +91,6 @@
           <Property Name="CategoryLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LogCategoryID" Type="int" Nullable="false" />
           <Property Name="LogID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="City">
-          <Key>
-            <PropertyRef Name="CityId" />
-          </Key>
-          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CityName" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="DetentionAuthority">
-          <Key>
-            <PropertyRef Name="DetentionAuthorityId" />
-          </Key>
-          <Property Name="DetentionAuthorityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DetentionAuthorityName" Type="nvarchar(max)" />
-          <Property Name="DetentionAuthorityDescription" Type="nvarchar(max)" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="DetentionLocation">
-          <Key>
-            <PropertyRef Name="DetentionLocationId" />
-          </Key>
-          <Property Name="DetentionLocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DetentionLocationName" Type="nvarchar(max)" />
-          <Property Name="DetentionLocationDescription" Type="nvarchar(max)" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Log">
           <Key>
@@ -205,99 +143,20 @@
           <Property Name="Menu_MenuId" Type="int" />
           <Property Name="Role_Id" Type="nvarchar" MaxLength="128" />
         </EntityType>
-        <EntityType Name="Prisoner">
+        <EntityType Name="Student">
           <Key>
-            <PropertyRef Name="PrisonerId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="PrisonerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PrisonerFirstNameE" Type="nvarchar(max)" />
-          <Property Name="PrisonerMiddleNameE" Type="nvarchar(max)" />
-          <Property Name="PrisonerLastNameE" Type="nvarchar(max)" />
-          <Property Name="PrisonerFirstNameA" Type="nvarchar(max)" />
-          <Property Name="PrisonerMiddleNameA" Type="nvarchar(max)" />
-          <Property Name="PrisonerLastNameA" Type="nvarchar(max)" />
-          <Property Name="PrisonerCnic" Type="nvarchar(max)" />
-          <Property Name="PrisonerPassport" Type="nvarchar(max)" />
-          <Property Name="PassportExpiryDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="PassportExpiryDateArabic" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="PrisonerAddress">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="int" Nullable="false" />
-          <Property Name="Province" Type="nvarchar" MaxLength="50" />
-          <Property Name="District" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tehseel" Type="nvarchar" MaxLength="50" />
-          <Property Name="PostOfficeOrCity" Type="nvarchar" MaxLength="50" />
-          <Property Name="Village" Type="nvarchar" MaxLength="50" />
-          <Property Name="HomePhone" Type="nvarchar" MaxLength="25" />
-          <Property Name="MobilePhone1" Type="nvarchar" MaxLength="25" />
-          <Property Name="MobilePhone2" Type="nvarchar" MaxLength="25" />
-          <Property Name="AddressComments" Type="nvarchar" MaxLength="250" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="PrisonerCaseInfo">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="int" Nullable="false" />
-          <Property Name="DetentionDate" Type="datetime" Nullable="false" />
-          <Property Name="DetentionAuthorityId" Type="int" />
-          <Property Name="DetentionLocationId" Type="int" />
-          <Property Name="FileNumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="ViolatorsNumber" Type="nvarchar" MaxLength="250" />
-          <Property Name="LockupNumber" Type="nvarchar" MaxLength="100" />
-          <Property Name="CaseTypeId" Type="int" />
-          <Property Name="CaseStatusId" Type="int" />
-          <Property Name="CaseInfoComments" Type="nvarchar" MaxLength="250" />
-          <Property Name="CourtName" Type="nvarchar" MaxLength="50" />
-          <Property Name="OfficeOrBench" Type="nvarchar" MaxLength="100" />
-          <Property Name="QaziName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CaseUnderTrialComments" Type="nvarchar" MaxLength="250" />
-          <Property Name="ImprisonmentDate" Type="datetime" />
-          <Property Name="ReleaseDate" Type="datetime" />
-          <Property Name="DeathSentence" Type="bit" Nullable="false" />
-          <Property Name="Penalty" Type="nvarchar(max)" />
-          <Property Name="PenaltyStatus" Type="nvarchar(max)" />
-          <Property Name="OutpassIssueDate" Type="datetime" />
-          <Property Name="CaseCloseComments" Type="nvarchar" MaxLength="250" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="CityId" Type="int" />
-          <Property Name="ImprisonmentMonth" Type="nvarchar(max)" />
-          <Property Name="ImprisonmentYear" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="PrisonerWorkInfo">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="int" Nullable="false" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" />
-          <Property Name="Iqama" Type="nvarchar" MaxLength="50" />
-          <Property Name="IqamaExpiryDate" Type="datetime" />
-          <Property Name="JobTitleE" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProfessionE" Type="nvarchar" MaxLength="50" />
-          <Property Name="JobTitleA" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProfessionA" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmployerName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmployerAddress" Type="nvarchar" MaxLength="100" />
-          <Property Name="EmployerPhone" Type="nvarchar" MaxLength="25" />
-          <Property Name="WorkInfoComments" Type="nvarchar" MaxLength="250" />
-          <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="UpdatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="CityId" Type="int" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RollNumber" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Contact" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DoB" Type="date" Nullable="false" />
+          <Property Name="MartialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -352,20 +211,6 @@
             </Principal>
             <Dependent Role="AspNetUserRoles">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Attachment_dbo_Prisoner_PrisonerId">
-          <End Role="Prisoner" Type="Self.Prisoner" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Attachment" Type="Self.Attachment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="Attachment">
-              <PropertyRef Name="PrisonerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -433,125 +278,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId">
-          <End Role="CaseStatus" Type="Self.CaseStatus" Multiplicity="0..1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CaseStatus">
-              <PropertyRef Name="CaseStatusId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CaseStatusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId">
-          <End Role="CaseType" Type="Self.CaseType" Multiplicity="0..1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CaseType">
-              <PropertyRef Name="CaseTypeId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CaseTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_City_CityId">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId">
-          <End Role="DetentionAuthority" Type="Self.DetentionAuthority" Multiplicity="0..1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetentionAuthority">
-              <PropertyRef Name="DetentionAuthorityId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="DetentionAuthorityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId">
-          <End Role="DetentionLocation" Type="Self.DetentionLocation" Multiplicity="0..1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetentionLocation">
-              <PropertyRef Name="DetentionLocationId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="DetentionLocationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerWorkInfo_dbo_City_CityId">
-          <End Role="Prisoner" Type="Self.Prisoner" Multiplicity="1" />
-          <End Role="PrisonerWorkInfo" Type="Self.PrisonerWorkInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerWorkInfo">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PrisonerAddress_Prisoner">
-          <End Role="Prisoner" Type="Self.Prisoner" Multiplicity="1" />
-          <End Role="PrisonerAddress" Type="Self.PrisonerAddress" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerAddress">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PrisonerCaseInfo_Prisoner">
-          <End Role="Prisoner" Type="Self.Prisoner" Multiplicity="1" />
-          <End Role="PrisonerCaseInfo" Type="Self.PrisonerCaseInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CaseStatus" EntityType="Self.CaseStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaseType" EntityType="Self.CaseType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryLog" EntityType="Self.CategoryLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DetentionAuthority" EntityType="Self.DetentionAuthority" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DetentionLocation" EntityType="Self.DetentionLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LogCategory" EntityType="Self.LogCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MenuRight" EntityType="Self.MenuRight" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Prisoner" EntityType="Self.Prisoner" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrisonerAddress" EntityType="Self.PrisonerAddress" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrisonerCaseInfo" EntityType="Self.PrisonerCaseInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrisonerWorkInfo" EntityType="Self.PrisonerWorkInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -567,10 +307,6 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Attachment_dbo_Prisoner_PrisonerId" Association="Self.FK_dbo_Attachment_dbo_Prisoner_PrisonerId">
-            <End Role="Prisoner" EntitySet="Prisoner" />
-            <End Role="Attachment" EntitySet="Attachment" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_CategoryLog_dbo_Log_LogID" Association="Self.FK_dbo_CategoryLog_dbo_Log_LogID">
             <End Role="Log" EntitySet="Log" />
@@ -592,62 +328,32 @@
             <End Role="Menu" EntitySet="Menu" />
             <End Role="MenuRight" EntitySet="MenuRight" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId" Association="Self.FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId">
-            <End Role="CaseStatus" EntitySet="CaseStatus" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId" Association="Self.FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId">
-            <End Role="CaseType" EntitySet="CaseType" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_City_CityId" Association="Self.FK_dbo_PrisonerCaseInfo_dbo_City_CityId">
-            <End Role="City" EntitySet="City" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId" Association="Self.FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId">
-            <End Role="DetentionAuthority" EntitySet="DetentionAuthority" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId" Association="Self.FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId">
-            <End Role="DetentionLocation" EntitySet="DetentionLocation" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerWorkInfo_dbo_City_CityId" Association="Self.FK_dbo_PrisonerWorkInfo_dbo_City_CityId">
-            <End Role="Prisoner" EntitySet="Prisoner" />
-            <End Role="PrisonerWorkInfo" EntitySet="PrisonerWorkInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrisonerAddress_Prisoner" Association="Self.FK_PrisonerAddress_Prisoner">
-            <End Role="Prisoner" EntitySet="Prisoner" />
-            <End Role="PrisonerAddress" EntitySet="PrisonerAddress" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrisonerCaseInfo_Prisoner" Association="Self.FK_PrisonerCaseInfo_Prisoner">
-            <End Role="Prisoner" EntitySet="Prisoner" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfo" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DomainModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BaseDbContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="DomainModels.C__MigrationHistory" />
+          <EntitySet Name="CategoryLogs" EntityType="DomainModels.CategoryLog" />
+          <EntitySet Name="Logs" EntityType="DomainModels.Log" />
+          <EntitySet Name="LogCategories" EntityType="DomainModels.LogCategory" />
+          <AssociationSet Name="FK_dbo_CategoryLog_dbo_Log_LogID" Association="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID">
+            <End Role="Log" EntitySet="Logs" />
+            <End Role="CategoryLog" EntitySet="CategoryLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" Association="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID">
+            <End Role="LogCategory" EntitySet="LogCategories" />
+            <End Role="CategoryLog" EntitySet="CategoryLogs" />
+          </AssociationSet>
+          <EntitySet Name="CaseTypes" EntityType="DomainModels.CaseType" />
+          <EntitySet Name="Categories" EntityType="DomainModels.Category" />
+          <EntitySet Name="Students" EntityType="DomainModels.Student" />
           <EntitySet Name="AspNetRoles" EntityType="DomainModels.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="DomainModels.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="DomainModels.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="DomainModels.AspNetUser" />
-          <EntitySet Name="Attachments" EntityType="DomainModels.Attachment" />
-          <EntitySet Name="CaseStatus1" EntityType="DomainModels.CaseStatus" />
-          <EntitySet Name="CaseTypes" EntityType="DomainModels.CaseType" />
-          <EntitySet Name="Categories" EntityType="DomainModels.Category" />
-          <EntitySet Name="CategoryLogs" EntityType="DomainModels.CategoryLog" />
-          <EntitySet Name="Cities" EntityType="DomainModels.City" />
-          <EntitySet Name="DetentionAuthorities" EntityType="DomainModels.DetentionAuthority" />
-          <EntitySet Name="DetentionLocations" EntityType="DomainModels.DetentionLocation" />
-          <EntitySet Name="Logs" EntityType="DomainModels.Log" />
-          <EntitySet Name="LogCategories" EntityType="DomainModels.LogCategory" />
           <EntitySet Name="Menus" EntityType="DomainModels.Menu" />
           <EntitySet Name="MenuRights" EntityType="DomainModels.MenuRight" />
-          <EntitySet Name="Prisoners" EntityType="DomainModels.Prisoner" />
           <AssociationSet Name="FK_dbo_MenuRight_dbo_AspNetRoles_Role_Id" Association="DomainModels.FK_dbo_MenuRight_dbo_AspNetRoles_Role_Id">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="MenuRight" EntitySet="MenuRights" />
@@ -660,18 +366,6 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Attachment_dbo_Prisoner_PrisonerId" Association="DomainModels.FK_dbo_Attachment_dbo_Prisoner_PrisonerId">
-            <End Role="Prisoner" EntitySet="Prisoners" />
-            <End Role="Attachment" EntitySet="Attachments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_CategoryLog_dbo_Log_LogID" Association="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID">
-            <End Role="Log" EntitySet="Logs" />
-            <End Role="CategoryLog" EntitySet="CategoryLogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" Association="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID">
-            <End Role="LogCategory" EntitySet="LogCategories" />
-            <End Role="CategoryLog" EntitySet="CategoryLogs" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_Menu_dbo_Menu_ParentItem_MenuId" Association="DomainModels.FK_dbo_Menu_dbo_Menu_ParentItem_MenuId">
             <End Role="Menu" EntitySet="Menus" />
             <End Role="Menu1" EntitySet="Menus" />
@@ -680,55 +374,112 @@
             <End Role="Menu" EntitySet="Menus" />
             <End Role="MenuRight" EntitySet="MenuRights" />
           </AssociationSet>
-          <EntitySet Name="PrisonerCaseInfoes" EntityType="DomainModels.PrisonerCaseInfo" />
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId" Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId">
-            <End Role="CaseStatus" EntitySet="CaseStatus1" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId" Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId">
-            <End Role="CaseType" EntitySet="CaseTypes" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_City_CityId" Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_City_CityId">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId" Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId">
-            <End Role="DetentionAuthority" EntitySet="DetentionAuthorities" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId" Association="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId">
-            <End Role="DetentionLocation" EntitySet="DetentionLocations" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrisonerCaseInfo_Prisoner" Association="DomainModels.FK_PrisonerCaseInfo_Prisoner">
-            <End Role="Prisoner" EntitySet="Prisoners" />
-            <End Role="PrisonerCaseInfo" EntitySet="PrisonerCaseInfoes" />
-          </AssociationSet>
-          <EntitySet Name="PrisonerAddresses" EntityType="DomainModels.PrisonerAddress" />
-          <AssociationSet Name="FK_PrisonerAddress_Prisoner" Association="DomainModels.FK_PrisonerAddress_Prisoner">
-            <End Role="Prisoner" EntitySet="Prisoners" />
-            <End Role="PrisonerAddress" EntitySet="PrisonerAddresses" />
-          </AssociationSet>
-          <EntitySet Name="PrisonerWorkInfoes" EntityType="DomainModels.PrisonerWorkInfo" />
-          <AssociationSet Name="FK_dbo_PrisonerWorkInfo_dbo_City_CityId" Association="DomainModels.FK_dbo_PrisonerWorkInfo_dbo_City_CityId">
-            <End Role="Prisoner" EntitySet="Prisoners" />
-            <End Role="PrisonerWorkInfo" EntitySet="PrisonerWorkInfoes" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="DomainModels.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
+        <EntityType Name="CategoryLog">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="CategoryLogID" />
           </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="LogID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Log" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" FromRole="CategoryLog" ToRole="Log" />
+          <NavigationProperty Name="LogCategory" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" FromRole="CategoryLog" ToRole="LogCategory" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Severity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MachineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AppDomainName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThreadName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Win32ThreadId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FormattedMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HandlingInstanceId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CategoryLogs" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" FromRole="Log" ToRole="CategoryLog" />
+        </EntityType>
+        <EntityType Name="LogCategory">
+          <Key>
+            <PropertyRef Name="LogCategoryID" />
+          </Key>
+          <Property Name="LogCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CategoryLogs" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" FromRole="LogCategory" ToRole="CategoryLog" />
+        </EntityType>
+        <Association Name="FK_dbo_CategoryLog_dbo_Log_LogID">
+          <End Type="DomainModels.Log" Role="Log" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DomainModels.CategoryLog" Role="CategoryLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="CategoryLog">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID">
+          <End Type="DomainModels.LogCategory" Role="LogCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DomainModels.CategoryLog" Role="CategoryLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LogCategory">
+              <PropertyRef Name="LogCategoryID" />
+            </Principal>
+            <Dependent Role="CategoryLog">
+              <PropertyRef Name="LogCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CaseType">
+          <Key>
+            <PropertyRef Name="CaseTypeId" />
+          </Key>
+          <Property Name="CaseTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CaseTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CaseTypeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CaseCategoryId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RollNumber" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Contact" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DoB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MartialStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -783,127 +534,10 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Blocked" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="DomainModels.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="DomainModels.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="AspNetRoles" Relationship="DomainModels.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
-        </EntityType>
-        <EntityType Name="Attachment">
-          <Key>
-            <PropertyRef Name="AttachmentId" />
-          </Key>
-          <Property Name="AttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PrisonerId" Type="Int32" Nullable="false" />
-          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AttachmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Prisoner" Relationship="DomainModels.FK_dbo_Attachment_dbo_Prisoner_PrisonerId" FromRole="Attachment" ToRole="Prisoner" />
-        </EntityType>
-        <EntityType Name="CaseStatus">
-          <Key>
-            <PropertyRef Name="CaseStatusId" />
-          </Key>
-          <Property Name="CaseStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CaseStatusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CaseStatusDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PrisonerCaseInfoes" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId" FromRole="CaseStatus" ToRole="PrisonerCaseInfo" />
-        </EntityType>
-        <EntityType Name="CaseType">
-          <Key>
-            <PropertyRef Name="CaseTypeId" />
-          </Key>
-          <Property Name="CaseTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CaseTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CaseTypeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PrisonerCaseInfoes" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId" FromRole="CaseType" ToRole="PrisonerCaseInfo" />
-        </EntityType>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CategoryLog">
-          <Key>
-            <PropertyRef Name="CategoryLogID" />
-          </Key>
-          <Property Name="CategoryLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LogCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="LogID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Log" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" FromRole="CategoryLog" ToRole="Log" />
-          <NavigationProperty Name="LogCategory" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" FromRole="CategoryLog" ToRole="LogCategory" />
-        </EntityType>
-        <EntityType Name="City">
-          <Key>
-            <PropertyRef Name="CityId" />
-          </Key>
-          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PrisonerCaseInfoes" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_City_CityId" FromRole="City" ToRole="PrisonerCaseInfo" />
-        </EntityType>
-        <EntityType Name="DetentionAuthority">
-          <Key>
-            <PropertyRef Name="DetentionAuthorityId" />
-          </Key>
-          <Property Name="DetentionAuthorityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DetentionAuthorityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DetentionAuthorityDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PrisonerCaseInfoes" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId" FromRole="DetentionAuthority" ToRole="PrisonerCaseInfo" />
-        </EntityType>
-        <EntityType Name="DetentionLocation">
-          <Key>
-            <PropertyRef Name="DetentionLocationId" />
-          </Key>
-          <Property Name="DetentionLocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DetentionLocationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DetentionLocationDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="PrisonerCaseInfoes" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId" FromRole="DetentionLocation" ToRole="PrisonerCaseInfo" />
-        </EntityType>
-        <EntityType Name="Log">
-          <Key>
-            <PropertyRef Name="LogID" />
-          </Key>
-          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EventID" Type="Int32" Nullable="false" />
-          <Property Name="Priority" Type="Int32" Nullable="false" />
-          <Property Name="Severity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="MachineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppDomainName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProcessID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ProcessName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ThreadName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Win32ThreadId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FormattedMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HandlingInstanceId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CategoryLogs" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" FromRole="Log" ToRole="CategoryLog" />
-        </EntityType>
-        <EntityType Name="LogCategory">
-          <Key>
-            <PropertyRef Name="LogCategoryID" />
-          </Key>
-          <Property Name="LogCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CategoryLogs" Relationship="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" FromRole="LogCategory" ToRole="CategoryLog" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -932,30 +566,6 @@
           <Property Name="Role_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetRole" Relationship="DomainModels.FK_dbo_MenuRight_dbo_AspNetRoles_Role_Id" FromRole="MenuRight" ToRole="AspNetRole" />
           <NavigationProperty Name="Menu" Relationship="DomainModels.FK_dbo_MenuRight_dbo_Menu_Menu_MenuId" FromRole="MenuRight" ToRole="Menu" />
-        </EntityType>
-        <EntityType Name="Prisoner">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PrisonerFirstNameE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerMiddleNameE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerLastNameE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerFirstNameA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerMiddleNameA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerLastNameA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerCnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PrisonerPassport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PassportExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="PassportExpiryDateArabic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Attachments" Relationship="DomainModels.FK_dbo_Attachment_dbo_Prisoner_PrisonerId" FromRole="Prisoner" ToRole="Attachment" />
-          <NavigationProperty Name="PrisonerCaseInfo" Relationship="DomainModels.FK_PrisonerCaseInfo_Prisoner" FromRole="Prisoner" ToRole="PrisonerCaseInfo" />
-          <NavigationProperty Name="PrisonerAddress" Relationship="DomainModels.FK_PrisonerAddress_Prisoner" FromRole="Prisoner" ToRole="PrisonerAddress" />
-          <NavigationProperty Name="PrisonerWorkInfo" Relationship="DomainModels.FK_dbo_PrisonerWorkInfo_dbo_City_CityId" FromRole="Prisoner" ToRole="PrisonerWorkInfo" />
         </EntityType>
         <Association Name="FK_dbo_MenuRight_dbo_AspNetRoles_Role_Id">
           <End Type="DomainModels.AspNetRole" Role="AspNetRole" Multiplicity="0..1" />
@@ -997,48 +607,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Attachment_dbo_Prisoner_PrisonerId">
-          <End Type="DomainModels.Prisoner" Role="Prisoner" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DomainModels.Attachment" Role="Attachment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="Attachment">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_CategoryLog_dbo_Log_LogID">
-          <End Type="DomainModels.Log" Role="Log" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DomainModels.CategoryLog" Role="CategoryLog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Log">
-              <PropertyRef Name="LogID" />
-            </Principal>
-            <Dependent Role="CategoryLog">
-              <PropertyRef Name="LogID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID">
-          <End Type="DomainModels.LogCategory" Role="LogCategory" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DomainModels.CategoryLog" Role="CategoryLog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LogCategory">
-              <PropertyRef Name="LogCategoryID" />
-            </Principal>
-            <Dependent Role="CategoryLog">
-              <PropertyRef Name="LogCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_Menu_dbo_Menu_ParentItem_MenuId">
           <End Type="DomainModels.Menu" Role="Menu" Multiplicity="0..1" />
           <End Type="DomainModels.Menu" Role="Menu1" Multiplicity="*" />
@@ -1063,184 +631,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="PrisonerCaseInfo">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="Int32" Nullable="false" />
-          <Property Name="DetentionDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DetentionAuthorityId" Type="Int32" />
-          <Property Name="DetentionLocationId" Type="Int32" />
-          <Property Name="FileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ViolatorsNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="LockupNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CaseTypeId" Type="Int32" />
-          <Property Name="CaseStatusId" Type="Int32" />
-          <Property Name="CaseInfoComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CourtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OfficeOrBench" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="QaziName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CaseUnderTrialComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ImprisonmentDate" Type="DateTime" Precision="3" />
-          <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
-          <Property Name="DeathSentence" Type="Boolean" Nullable="false" />
-          <Property Name="Penalty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PenaltyStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OutpassIssueDate" Type="DateTime" Precision="3" />
-          <Property Name="CaseCloseComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CityId" Type="Int32" />
-          <Property Name="ImprisonmentMonth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ImprisonmentYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CaseStatus" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId" FromRole="PrisonerCaseInfo" ToRole="CaseStatus" />
-          <NavigationProperty Name="CaseType" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId" FromRole="PrisonerCaseInfo" ToRole="CaseType" />
-          <NavigationProperty Name="City" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_City_CityId" FromRole="PrisonerCaseInfo" ToRole="City" />
-          <NavigationProperty Name="DetentionAuthority" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId" FromRole="PrisonerCaseInfo" ToRole="DetentionAuthority" />
-          <NavigationProperty Name="DetentionLocation" Relationship="DomainModels.FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId" FromRole="PrisonerCaseInfo" ToRole="DetentionLocation" />
-          <NavigationProperty Name="Prisoner" Relationship="DomainModels.FK_PrisonerCaseInfo_Prisoner" FromRole="PrisonerCaseInfo" ToRole="Prisoner" />
-        </EntityType>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_CaseStatus_CaseStatusId">
-          <End Type="DomainModels.CaseStatus" Role="CaseStatus" Multiplicity="0..1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CaseStatus">
-              <PropertyRef Name="CaseStatusId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CaseStatusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_CaseType_CaseTypeId">
-          <End Type="DomainModels.CaseType" Role="CaseType" Multiplicity="0..1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CaseType">
-              <PropertyRef Name="CaseTypeId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CaseTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_City_CityId">
-          <End Type="DomainModels.City" Role="City" Multiplicity="0..1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionAuthority_DetentionAuthorityId">
-          <End Type="DomainModels.DetentionAuthority" Role="DetentionAuthority" Multiplicity="0..1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetentionAuthority">
-              <PropertyRef Name="DetentionAuthorityId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="DetentionAuthorityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_PrisonerCaseInfo_dbo_DetentionLocation_DetentionLocationId">
-          <End Type="DomainModels.DetentionLocation" Role="DetentionLocation" Multiplicity="0..1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetentionLocation">
-              <PropertyRef Name="DetentionLocationId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="DetentionLocationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PrisonerCaseInfo_Prisoner">
-          <End Type="DomainModels.Prisoner" Role="Prisoner" Multiplicity="1" />
-          <End Type="DomainModels.PrisonerCaseInfo" Role="PrisonerCaseInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerCaseInfo">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="PrisonerAddress">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="Int32" Nullable="false" />
-          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tehseel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PostOfficeOrCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Village" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HomePhone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="MobilePhone1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="MobilePhone2" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="AddressComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Prisoner" Relationship="DomainModels.FK_PrisonerAddress_Prisoner" FromRole="PrisonerAddress" ToRole="Prisoner" />
-        </EntityType>
-        <Association Name="FK_PrisonerAddress_Prisoner">
-          <End Type="DomainModels.Prisoner" Role="Prisoner" Multiplicity="1" />
-          <End Type="DomainModels.PrisonerAddress" Role="PrisonerAddress" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerAddress">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="PrisonerWorkInfo">
-          <Key>
-            <PropertyRef Name="PrisonerId" />
-          </Key>
-          <Property Name="PrisonerId" Type="Int32" Nullable="false" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Iqama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IqamaExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="JobTitleE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProfessionE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="JobTitleA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProfessionA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EmployerPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="WorkInfoComments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CityId" Type="Int32" />
-          <NavigationProperty Name="Prisoner" Relationship="DomainModels.FK_dbo_PrisonerWorkInfo_dbo_City_CityId" FromRole="PrisonerWorkInfo" ToRole="Prisoner" />
-        </EntityType>
-        <Association Name="FK_dbo_PrisonerWorkInfo_dbo_City_CityId">
-          <End Type="DomainModels.Prisoner" Role="Prisoner" Multiplicity="1" />
-          <End Type="DomainModels.PrisonerWorkInfo" Role="PrisonerWorkInfo" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Prisoner">
-              <PropertyRef Name="PrisonerId" />
-            </Principal>
-            <Dependent Role="PrisonerWorkInfo">
-              <PropertyRef Name="PrisonerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Type="DomainModels.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="DomainModels.AspNetUser" Role="AspNetUser" Multiplicity="*" />
@@ -1251,13 +641,79 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="BaseDbContext">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="DomainModels.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <EntitySetMapping Name="CategoryLogs">
+            <EntityTypeMapping TypeName="DomainModels.CategoryLog">
+              <MappingFragment StoreEntitySet="CategoryLog">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="LogCategoryID" ColumnName="LogCategoryID" />
+                <ScalarProperty Name="CategoryLogID" ColumnName="CategoryLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="DomainModels.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="HandlingInstanceId" ColumnName="HandlingInstanceId" />
+                <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Win32ThreadId" ColumnName="Win32ThreadId" />
+                <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="AppDomainName" ColumnName="AppDomainName" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogCategories">
+            <EntityTypeMapping TypeName="DomainModels.LogCategory">
+              <MappingFragment StoreEntitySet="LogCategory">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="LogCategoryID" ColumnName="LogCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaseTypes">
+            <EntityTypeMapping TypeName="DomainModels.CaseType">
+              <MappingFragment StoreEntitySet="CaseType">
+                <ScalarProperty Name="CaseCategoryId" ColumnName="CaseCategoryId" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CaseTypeDescription" ColumnName="CaseTypeDescription" />
+                <ScalarProperty Name="CaseTypeName" ColumnName="CaseTypeName" />
+                <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DomainModels.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DomainModels.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="MartialStatus" ColumnName="MartialStatus" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="RollNumber" ColumnName="RollNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1291,6 +747,7 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="DomainModels.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Blocked" ColumnName="Blocked" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
@@ -1310,124 +767,6 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Attachments">
-            <EntityTypeMapping TypeName="DomainModels.Attachment">
-              <MappingFragment StoreEntitySet="Attachment">
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
-                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="PrisonerId" ColumnName="PrisonerId" />
-                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CaseStatus1">
-            <EntityTypeMapping TypeName="DomainModels.CaseStatus">
-              <MappingFragment StoreEntitySet="CaseStatus">
-                <ScalarProperty Name="CaseStatusDescription" ColumnName="CaseStatusDescription" />
-                <ScalarProperty Name="CaseStatusName" ColumnName="CaseStatusName" />
-                <ScalarProperty Name="CaseStatusId" ColumnName="CaseStatusId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CaseTypes">
-            <EntityTypeMapping TypeName="DomainModels.CaseType">
-              <MappingFragment StoreEntitySet="CaseType">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CaseTypeDescription" ColumnName="CaseTypeDescription" />
-                <ScalarProperty Name="CaseTypeName" ColumnName="CaseTypeName" />
-                <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="DomainModels.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CategoryLogs">
-            <EntityTypeMapping TypeName="DomainModels.CategoryLog">
-              <MappingFragment StoreEntitySet="CategoryLog">
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
-                <ScalarProperty Name="LogCategoryID" ColumnName="LogCategoryID" />
-                <ScalarProperty Name="CategoryLogID" ColumnName="CategoryLogID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Cities">
-            <EntityTypeMapping TypeName="DomainModels.City">
-              <MappingFragment StoreEntitySet="City">
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DetentionAuthorities">
-            <EntityTypeMapping TypeName="DomainModels.DetentionAuthority">
-              <MappingFragment StoreEntitySet="DetentionAuthority">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DetentionAuthorityDescription" ColumnName="DetentionAuthorityDescription" />
-                <ScalarProperty Name="DetentionAuthorityName" ColumnName="DetentionAuthorityName" />
-                <ScalarProperty Name="DetentionAuthorityId" ColumnName="DetentionAuthorityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DetentionLocations">
-            <EntityTypeMapping TypeName="DomainModels.DetentionLocation">
-              <MappingFragment StoreEntitySet="DetentionLocation">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DetentionLocationDescription" ColumnName="DetentionLocationDescription" />
-                <ScalarProperty Name="DetentionLocationName" ColumnName="DetentionLocationName" />
-                <ScalarProperty Name="DetentionLocationId" ColumnName="DetentionLocationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Logs">
-            <EntityTypeMapping TypeName="DomainModels.Log">
-              <MappingFragment StoreEntitySet="Log">
-                <ScalarProperty Name="HandlingInstanceId" ColumnName="HandlingInstanceId" />
-                <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Win32ThreadId" ColumnName="Win32ThreadId" />
-                <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
-                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
-                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
-                <ScalarProperty Name="AppDomainName" ColumnName="AppDomainName" />
-                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
-                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Severity" ColumnName="Severity" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="EventID" ColumnName="EventID" />
-                <ScalarProperty Name="LogID" ColumnName="LogID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LogCategories">
-            <EntityTypeMapping TypeName="DomainModels.LogCategory">
-              <MappingFragment StoreEntitySet="LogCategory">
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="LogCategoryID" ColumnName="LogCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1454,104 +793,6 @@
                 <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
                 <ScalarProperty Name="Menu_MenuId" ColumnName="Menu_MenuId" />
                 <ScalarProperty Name="MenuRightId" ColumnName="MenuRightId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Prisoners">
-            <EntityTypeMapping TypeName="DomainModels.Prisoner">
-              <MappingFragment StoreEntitySet="Prisoner">
-                <ScalarProperty Name="PassportExpiryDateArabic" ColumnName="PassportExpiryDateArabic" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="PassportExpiryDate" ColumnName="PassportExpiryDate" />
-                <ScalarProperty Name="PrisonerPassport" ColumnName="PrisonerPassport" />
-                <ScalarProperty Name="PrisonerCnic" ColumnName="PrisonerCnic" />
-                <ScalarProperty Name="PrisonerLastNameA" ColumnName="PrisonerLastNameA" />
-                <ScalarProperty Name="PrisonerMiddleNameA" ColumnName="PrisonerMiddleNameA" />
-                <ScalarProperty Name="PrisonerFirstNameA" ColumnName="PrisonerFirstNameA" />
-                <ScalarProperty Name="PrisonerLastNameE" ColumnName="PrisonerLastNameE" />
-                <ScalarProperty Name="PrisonerMiddleNameE" ColumnName="PrisonerMiddleNameE" />
-                <ScalarProperty Name="PrisonerFirstNameE" ColumnName="PrisonerFirstNameE" />
-                <ScalarProperty Name="PrisonerId" ColumnName="PrisonerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PrisonerCaseInfoes">
-            <EntityTypeMapping TypeName="DomainModels.PrisonerCaseInfo">
-              <MappingFragment StoreEntitySet="PrisonerCaseInfo">
-                <ScalarProperty Name="ImprisonmentYear" ColumnName="ImprisonmentYear" />
-                <ScalarProperty Name="ImprisonmentMonth" ColumnName="ImprisonmentMonth" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CaseCloseComments" ColumnName="CaseCloseComments" />
-                <ScalarProperty Name="OutpassIssueDate" ColumnName="OutpassIssueDate" />
-                <ScalarProperty Name="PenaltyStatus" ColumnName="PenaltyStatus" />
-                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
-                <ScalarProperty Name="DeathSentence" ColumnName="DeathSentence" />
-                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
-                <ScalarProperty Name="ImprisonmentDate" ColumnName="ImprisonmentDate" />
-                <ScalarProperty Name="CaseUnderTrialComments" ColumnName="CaseUnderTrialComments" />
-                <ScalarProperty Name="QaziName" ColumnName="QaziName" />
-                <ScalarProperty Name="OfficeOrBench" ColumnName="OfficeOrBench" />
-                <ScalarProperty Name="CourtName" ColumnName="CourtName" />
-                <ScalarProperty Name="CaseInfoComments" ColumnName="CaseInfoComments" />
-                <ScalarProperty Name="CaseStatusId" ColumnName="CaseStatusId" />
-                <ScalarProperty Name="CaseTypeId" ColumnName="CaseTypeId" />
-                <ScalarProperty Name="LockupNumber" ColumnName="LockupNumber" />
-                <ScalarProperty Name="ViolatorsNumber" ColumnName="ViolatorsNumber" />
-                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
-                <ScalarProperty Name="DetentionLocationId" ColumnName="DetentionLocationId" />
-                <ScalarProperty Name="DetentionAuthorityId" ColumnName="DetentionAuthorityId" />
-                <ScalarProperty Name="DetentionDate" ColumnName="DetentionDate" />
-                <ScalarProperty Name="PrisonerId" ColumnName="PrisonerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PrisonerAddresses">
-            <EntityTypeMapping TypeName="DomainModels.PrisonerAddress">
-              <MappingFragment StoreEntitySet="PrisonerAddress">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="AddressComments" ColumnName="AddressComments" />
-                <ScalarProperty Name="MobilePhone2" ColumnName="MobilePhone2" />
-                <ScalarProperty Name="MobilePhone1" ColumnName="MobilePhone1" />
-                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
-                <ScalarProperty Name="Village" ColumnName="Village" />
-                <ScalarProperty Name="PostOfficeOrCity" ColumnName="PostOfficeOrCity" />
-                <ScalarProperty Name="Tehseel" ColumnName="Tehseel" />
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="Province" ColumnName="Province" />
-                <ScalarProperty Name="PrisonerId" ColumnName="PrisonerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PrisonerWorkInfoes">
-            <EntityTypeMapping TypeName="DomainModels.PrisonerWorkInfo">
-              <MappingFragment StoreEntitySet="PrisonerWorkInfo">
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="WorkInfoComments" ColumnName="WorkInfoComments" />
-                <ScalarProperty Name="EmployerPhone" ColumnName="EmployerPhone" />
-                <ScalarProperty Name="EmployerAddress" ColumnName="EmployerAddress" />
-                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
-                <ScalarProperty Name="ProfessionA" ColumnName="ProfessionA" />
-                <ScalarProperty Name="JobTitleA" ColumnName="JobTitleA" />
-                <ScalarProperty Name="ProfessionE" ColumnName="ProfessionE" />
-                <ScalarProperty Name="JobTitleE" ColumnName="JobTitleE" />
-                <ScalarProperty Name="IqamaExpiryDate" ColumnName="IqamaExpiryDate" />
-                <ScalarProperty Name="Iqama" ColumnName="Iqama" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="PrisonerId" ColumnName="PrisonerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

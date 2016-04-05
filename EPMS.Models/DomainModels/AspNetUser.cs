@@ -25,9 +25,20 @@ namespace EPMS.Models.DomainModels
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public bool Blocked { get; set; }
+        public long UserDomainKey { get; set; }
+        public long? EmployeeId { get; set; }
+        public string FirstName1 { get; set; }
+        public string LastName1 { get; set; }
+        public string Telephone1 { get; set; }
+        public string Address1 { get; set; }
+        public string ImageName1 { get; set; }
+        public DateTime? DateOfBirth1 { get; set; }
+        public string Qualification1 { get; set; }
+        public bool Blocked1 { get; set; }
 
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }
 }

@@ -123,6 +123,7 @@
     <Compile Include="DomainModels\PrisonerAddress.cs" />
     <Compile Include="DomainModels\PrisonerCaseInfo.cs" />
     <Compile Include="DomainModels\PrisonerWorkInfo.cs" />
+    <Compile Include="DomainModels\Student.cs" />
     <Compile Include="IdentityModels\ApplicationRights.cs">
       <SubType>Code</SubType>
     </Compile>

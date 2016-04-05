@@ -76,17 +76,10 @@ namespace EPMS.Repository.BaseRepository
         public DbSet<AspNetRole> UserRoles { get; set; }
         public DbSet<AspNetUserClaim> UserClaims { get; set; }
         public DbSet<AspNetUserLogin> UserLogins { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Prisoner> Prisoners { get; set; }
-        public DbSet<PrisonerAddress> PrisonerAddresses { get; set; }
-        public DbSet<PrisonerWorkInfo> PrisonerWorkInfos { get; set; }
-        public DbSet<PrisonerCaseInfo> PrisonerCaseInfos { get; set; }
-        public DbSet<DetentionLocation> DetentionLocations { get; set; }
-        public DbSet<DetentionAuthority> DetentionAuthorities { get; set; }
-        public DbSet<CaseStatus> CaseStatuses { get; set; }
-        public DbSet<CaseType> CaseTypes { get; set; }
-        public DbSet<City> Cities { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CaseType> CaseTypes { get; set; }
+        public DbSet<Student> Students { get; set; }
        
     }
 }

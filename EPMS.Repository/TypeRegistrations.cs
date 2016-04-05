@@ -12,12 +12,7 @@ namespace EPMS.Repository
         public static void RegisterType(IUnityContainer unityContainer)
         {
             unityContainer.RegisterType<IMenuRightRepository, MenuRightRepository>();
-            unityContainer.RegisterType<IPrisonerRepository, PrisonerRepository>();
             unityContainer.RegisterType<ICaseTypeRepository, CaseTypeRepository>();
-            unityContainer.RegisterType<ICaseStatusRepository, CaseStatusRepository>();
-            unityContainer.RegisterType<IDetentionAuthorityRepository, DetentionAuthorityRepository>();
-            unityContainer.RegisterType<IDetentionLocationRepository, DetentionLocationRepository>();
-            unityContainer.RegisterType<ICityRepository, CityRepository>();
             unityContainer.RegisterType<IMenuRepository, MenuRepository>();
 
             unityContainer.RegisterType<DbContext, BaseDbContext>(new PerRequestLifetimeManager());
