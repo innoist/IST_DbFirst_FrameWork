@@ -143,7 +143,7 @@ namespace IdentitySample.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Home");
             }
 
         }
@@ -164,7 +164,7 @@ namespace IdentitySample.Controllers
             try
             {
                 if (string.IsNullOrEmpty(returnUrl))
-                    returnUrl = "/Admin/Index";
+                    returnUrl = "/Home/Index";
                 if (!ModelState.IsValid)
                 {
                     return View(model);
