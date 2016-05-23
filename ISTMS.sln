@@ -5,17 +5,17 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E4098FF-362D-4EDD-B285-41D61209D141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Implementation", "EPMS.Implementation\IST.Implementation.csproj", "{42D2E6C0-74F1-46FB-B7BA-43251156275D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Implementation", "IST.Implementation\IST.Implementation.csproj", "{42D2E6C0-74F1-46FB-B7BA-43251156275D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Interfaces", "EPMS.Interfaces\IST.Interfaces.csproj", "{98F7A831-6D93-48E9-950F-623772AA607A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Interfaces", "IST.Interfaces\IST.Interfaces.csproj", "{98F7A831-6D93-48E9-950F-623772AA607A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Models", "EPMS.Models\IST.Models.csproj", "{81067904-2176-4648-87AB-014B0D76B85E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Models", "IST.Models\IST.Models.csproj", "{81067904-2176-4648-87AB-014B0D76B85E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Repository", "EPMS.Repository\IST.Repository.csproj", "{852BDC39-3388-4CB1-A959-F3BD06E9DF92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Repository", "IST.Repository\IST.Repository.csproj", "{852BDC39-3388-4CB1-A959-F3BD06E9DF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Web", "EPMS.Web\IST.Web.csproj", "{426080DD-D8CB-49F2-9645-DFD962ADFFDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.Web", "IST.Web\IST.Web.csproj", "{426080DD-D8CB-49F2-9645-DFD962ADFFDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.WebBase", "EPMS.WebBase\IST.WebBase.csproj", "{BCB8BCFD-0163-430C-8088-224074D6E384}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IST.WebBase", "IST.WebBase\IST.WebBase.csproj", "{BCB8BCFD-0163-430C-8088-224074D6E384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
