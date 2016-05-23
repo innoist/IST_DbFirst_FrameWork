@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using EPMS.Interfaces.IServices;
+using IST.Interfaces.IServices;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 
-namespace EPMS.Implementation.Services
+namespace IST.Implementation.Services
 {
     /// <summary>
     /// Logger class that manages log entries 

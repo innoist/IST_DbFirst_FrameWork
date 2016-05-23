@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 
-namespace EPMS.Models.DomainModels
+namespace IST.Models.DomainModels
 {
     public partial class AspNetRole : IRole<string>
     {

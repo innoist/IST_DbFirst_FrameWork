@@ -10,9 +10,6 @@
         <EntityTypeShape EntityType="DomainModels.LogCategory" Width="1.5" PointX="5.75" PointY="14.625" />
         <AssociationConnector Association="DomainModels.FK_dbo_CategoryLog_dbo_Log_LogID" />
         <AssociationConnector Association="DomainModels.FK_dbo_CategoryLog_dbo_LogCategory_LogCategoryID" />
-        <EntityTypeShape EntityType="DomainModels.CaseType" Width="1.5" PointX="0.75" PointY="8.75" />
-        <EntityTypeShape EntityType="DomainModels.Category" Width="1.5" PointX="2.75" PointY="8.75" />
-        <EntityTypeShape EntityType="DomainModels.Student" Width="1.5" PointX="10.75" PointY="0.75" />
         <EntityTypeShape EntityType="DomainModels.AspNetRole" Width="1.5" PointX="0.75" PointY="6" />
         <EntityTypeShape EntityType="DomainModels.AspNetUserClaim" Width="1.5" PointX="8.125" PointY="6.125" />
         <EntityTypeShape EntityType="DomainModels.AspNetUserLogin" Width="1.5" PointX="8.125" PointY="3.625" />

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EPMS.Web.Views.Shared {
+namespace IST.Web.Views.Shared {
     
     
     public partial class ES {

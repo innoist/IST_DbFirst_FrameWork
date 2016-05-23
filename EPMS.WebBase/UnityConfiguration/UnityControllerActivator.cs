@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace EPMS.WebBase.UnityConfiguration
+namespace IST.WebBase.UnityConfiguration
 {
     public class UnityControllerActivator : IControllerActivator
     {

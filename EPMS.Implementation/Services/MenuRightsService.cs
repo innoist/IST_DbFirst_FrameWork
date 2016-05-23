@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EPMS.Models.DomainModels;
+using IST.Models.DomainModels;
 using Microsoft.AspNet.Identity.EntityFramework;
-using EPMS.Interfaces.IServices;
-using EPMS.Interfaces.Repository;
-using EPMS.Models.MenuModels;
+using IST.Interfaces.IServices;
+using IST.Interfaces.Repository;
+using IST.Models.MenuModels;
 
-namespace EPMS.Implementation.Services
+namespace IST.Implementation.Services
 {
     /// <summary>
     /// Menu Rights Service

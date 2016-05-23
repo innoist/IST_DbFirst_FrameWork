@@ -1,7 +1,7 @@
-﻿using EPMS.Implementation.Identity;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.IdentityModels.ViewModels;
+﻿using IST.Implementation.Identity;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.IdentityModels.ViewModels;
 using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-using EPMS.Models.IdentityModels;
+using IST.Models.IdentityModels;
 
 namespace IdentitySample.Controllers
 {

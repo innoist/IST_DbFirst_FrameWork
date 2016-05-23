@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using IdentitySample.Controllers;
 
-namespace EPMS.Web.Controllers
+namespace IST.Web.Controllers
 {
     public class UnauthorizedRequestController : Controller
     {

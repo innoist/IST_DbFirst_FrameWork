@@ -1,4 +1,4 @@
-﻿namespace EPMS.Web.Files
+﻿namespace IST.Web.Files
 {
     public class PDFCheckBoxFieldType : PDFFieldType
     {

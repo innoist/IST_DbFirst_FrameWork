@@ -3,17 +3,17 @@ using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Repository.BaseRepository;
-using EPMS.Repository.Repositories;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Repository.BaseRepository;
+using IST.Repository.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.Implementation.Identity
+namespace IST.Implementation.Identity
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 

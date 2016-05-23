@@ -1,7 +1,7 @@
-﻿using EPMS.Implementation.Identity;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.IdentityModels.ViewModels;
+﻿using IST.Implementation.Identity;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.IdentityModels.ViewModels;
 using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
-using EPMS.Models.MenuModels;
-using EPMS.Implementation.Services;
+using IST.Models.MenuModels;
+using IST.Implementation.Services;
 
-using EPMS.Models.IdentityModels;
-using EPMS.Interfaces.IServices;
-using EPMS.Web.ViewModels.RightsManagement;
+using IST.Models.IdentityModels;
+using IST.Interfaces.IServices;
+using IST.Web.ViewModels.RightsManagement;
 
 namespace IdentitySample.Controllers
 {

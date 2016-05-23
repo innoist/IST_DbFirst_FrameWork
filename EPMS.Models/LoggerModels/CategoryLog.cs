@@ -1,5 +1,5 @@
 ﻿
-namespace EPMS.Models.LoggerModels
+namespace IST.Models.LoggerModels
 {
     /// <summary>
     /// Category Log class for database logging

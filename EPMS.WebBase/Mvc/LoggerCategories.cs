@@ -1,5 +1,5 @@
 ﻿
-namespace EPMS.WebBase.Mvc
+namespace IST.WebBase.Mvc
 {
     public static class LoggerCategories
     {

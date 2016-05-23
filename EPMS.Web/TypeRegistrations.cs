@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.Unity;
 
-namespace EPMS.Web
+namespace IST.Web
 {
     public static class TypeRegistrations
     {

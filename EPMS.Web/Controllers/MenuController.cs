@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EPMS.Implementation.Identity;
-using EPMS.Interfaces.IServices;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.MenuModels;
-using EPMS.Web.ViewModels.Common;
+using IST.Implementation.Identity;
+using IST.Interfaces.IServices;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.MenuModels;
+using IST.Web.ViewModels.Common;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace EPMS.Web.Controllers
+namespace IST.Web.Controllers
 {
     /// <summary>
     /// Menu Controller to load menu items

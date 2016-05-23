@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.LoggerModels;
-using EPMS.Models.MenuModels;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.LoggerModels;
+using IST.Models.MenuModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.Repository.BaseRepository
+namespace IST.Repository.BaseRepository
 {
     /// <summary>
     /// Base Db Context. Implements Identity Db Context over Application User
@@ -53,7 +53,7 @@ namespace EPMS.Repository.BaseRepository
         /// <summary>
         /// Category Logs
         /// </summary>
-        public DbSet<EPMS.Models.LoggerModels.CategoryLog> CategoryLogs { get; set; }
+        public DbSet<IST.Models.LoggerModels.CategoryLog> CategoryLogs { get; set; }
         #endregion
         #region Menu Rights and Security
         /// <summary>
@@ -76,10 +76,6 @@ namespace EPMS.Repository.BaseRepository
         public DbSet<AspNetRole> UserRoles { get; set; }
         public DbSet<AspNetUserClaim> UserClaims { get; set; }
         public DbSet<AspNetUserLogin> UserLogins { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<CaseType> CaseTypes { get; set; }
-        public DbSet<Student> Students { get; set; }
        
     }
 }

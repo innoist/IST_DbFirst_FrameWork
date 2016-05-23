@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace EPMS.Web.Areas.Common
+namespace IST.Web.Areas.Common
 {
     public class CommonAreaRegistration : AreaRegistration 
     {

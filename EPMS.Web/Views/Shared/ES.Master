@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ES.Master.cs" Inherits="EPMS.Web.Views.Shared.ES" %>
-<%@ Import Namespace="EPMS.Web.Helper" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ES.Master.cs" Inherits="IST.Web.Views.Shared.ES" %>
+<%@ Import Namespace="IST.Web.Helper" %>
 
 <!DOCTYPE html>
 

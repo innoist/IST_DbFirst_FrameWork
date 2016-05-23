@@ -1,4 +1,4 @@
-﻿namespace EPMS.Models.MenuModels
+﻿namespace IST.Models.MenuModels
 {
     public class Rights
     {

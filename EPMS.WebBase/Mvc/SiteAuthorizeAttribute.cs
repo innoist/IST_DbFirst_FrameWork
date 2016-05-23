@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace EPMS.WebBase.Mvc
+namespace IST.WebBase.Mvc
 {
     /// <summary>
     /// Site Authorize Attribute

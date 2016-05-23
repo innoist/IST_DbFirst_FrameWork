@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using EPMS.Models.DomainModels;
-using EPMS.Models.MenuModels;
+using IST.Models.DomainModels;
+using IST.Models.MenuModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EPMS.Web.ViewModels.RightsManagement
+namespace IST.Web.ViewModels.RightsManagement
 {
     public class RightsManagementViewModel
     {

@@ -6,7 +6,7 @@ using System.Web;
 using System.IO;
 using iTextSharp.text.pdf;
 
-namespace EPMS.Web.Files
+namespace IST.Web.Files
 {
     public class PDFHelper
     {

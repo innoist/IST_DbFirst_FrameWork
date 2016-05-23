@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using EPMS.Interfaces.Repository;
-using EPMS.Models.MenuModels;
+using IST.Interfaces.Repository;
+using IST.Models.MenuModels;
 using Microsoft.Practices.Unity;
-using EPMS.Repository.BaseRepository;
+using IST.Repository.BaseRepository;
 
-namespace EPMS.Web.Views.RolesAdmin
+namespace IST.Web.Views.RolesAdmin
 {
     public class MenuRepository : BaseRepository<Menu>, IMenuRepository
     {

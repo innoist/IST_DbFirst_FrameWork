@@ -2,11 +2,11 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using EPMS.Models.DomainModels;
-using EPMS.Repository.BaseRepository;
+using IST.Models.DomainModels;
+using IST.Repository.BaseRepository;
 using Microsoft.AspNet.Identity;
 
-namespace EPMS.Repository.Repositories
+namespace IST.Repository.Repositories
 {
     public class UserRoleStore : IQueryableRoleStore<AspNetRole, string>
     {

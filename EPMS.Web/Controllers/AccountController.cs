@@ -1,16 +1,16 @@
 ﻿using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
-using EPMS.Implementation.Identity;
-using EPMS.Interfaces.IServices;
-using EPMS.Models.DomainModels;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.IdentityModels.ViewModels;
-using EPMS.Models.MenuModels;
-using EPMS.Repository.BaseRepository;
-using EPMS.Repository.Repositories;
-using EPMS.Web.Controllers;
-using EPMS.Web.Models;
+using IST.Implementation.Identity;
+using IST.Interfaces.IServices;
+using IST.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.IdentityModels.ViewModels;
+using IST.Models.MenuModels;
+using IST.Repository.BaseRepository;
+using IST.Repository.Repositories;
+using IST.Web.Controllers;
+using IST.Web.Models;
 using IdentitySample.Models;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
@@ -26,9 +26,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Collections.Generic;
-using EPMS.Models.IdentityModels;
-using EPMS.Web.ViewModels.Common;
-using EPMS.Web.ViewModels.Admin;
+using IST.Web.ViewModels.Admin;
+using IST.Web.ViewModels.Common;
 
 namespace IdentitySample.Controllers
 {
@@ -56,7 +55,7 @@ namespace IdentitySample.Controllers
             {
                 AspNetUser userResult = UserManager.FindByEmail(userEmail);
                 IList<AspNetRole> roles = userResult.AspNetRoles.ToList();
-                IList<EPMS.Models.MenuModels.MenuRight> userRights = menuRightService.FindMenuItemsByRoleId(roles[0].Id).ToList();
+                IList<IST.Models.MenuModels.MenuRight> userRights = menuRightService.FindMenuItemsByRoleId(roles[0].Id).ToList();
 
                 string[] userPermissions = userRights.Select(user => user.Menu.PermissionKey).ToArray();
                 Session["UserPermissionSet"] = userPermissions;
@@ -269,7 +268,7 @@ namespace IdentitySample.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        [EPMS.WebBase.Mvc.SiteAuthorize(PermissionKey = "UserAddEdit")]
+        [IST.WebBase.Mvc.SiteAuthorize(PermissionKey = "UserAddEdit")]
         public ActionResult RegisterLVAddEdit(string email)
         {
             RegisterViewModel oResult = new RegisterViewModel();
@@ -298,7 +297,7 @@ namespace IdentitySample.Controllers
 
 
         [AllowAnonymous]
-        [EPMS.WebBase.Mvc.SiteAuthorize(PermissionKey = "User")]
+        [IST.WebBase.Mvc.SiteAuthorize(PermissionKey = "User")]
         public ActionResult RegisterLV()
         {
             if (Session["LoginID"] == null)
@@ -338,7 +337,7 @@ namespace IdentitySample.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [EPMS.WebBase.Mvc.SiteAuthorize(PermissionKey = "UserAddEdit")]
+        [IST.WebBase.Mvc.SiteAuthorize(PermissionKey = "UserAddEdit")]
         public async Task<ActionResult> RegisterLVAddEdit(RegisterViewModel model)
         {
 

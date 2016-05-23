@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace EPMS.Web.Helper
+namespace IST.Web.Helper
 {
     public static class CultureHelper
     {

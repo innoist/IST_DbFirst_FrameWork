@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace EPMS.Models.IdentityModels.ViewModels
+namespace IST.Models.IdentityModels.ViewModels
 {
     public class RoleViewModel
     {

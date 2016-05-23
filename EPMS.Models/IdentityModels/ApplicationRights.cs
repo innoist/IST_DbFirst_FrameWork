@@ -1,5 +1,5 @@
 ﻿
-namespace EPMS.Models.IdentityModels
+namespace IST.Models.IdentityModels
 {
     public static class ApplicationRights
     {

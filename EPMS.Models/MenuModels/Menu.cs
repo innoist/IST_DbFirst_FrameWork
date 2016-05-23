@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.AccessControl;
 
-namespace EPMS.Models.MenuModels
+namespace IST.Models.MenuModels
 {
     /// <summary>
     /// MainMenu class for dynamic menu population from database

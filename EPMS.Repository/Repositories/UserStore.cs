@@ -6,11 +6,11 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using EPMS.Models.DomainModels;
-using EPMS.Repository.BaseRepository;
+using IST.Models.DomainModels;
+using IST.Repository.BaseRepository;
 using Microsoft.AspNet.Identity;
 
-namespace EPMS.Repository.Repositories
+namespace IST.Repository.Repositories
 {
     public class UserStore :
         IQueryableUserStore<AspNetUser, string>,

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EPMS.Models.DomainModels
+namespace IST.Models.DomainModels
 {
     public class AspNetUserRole
     {

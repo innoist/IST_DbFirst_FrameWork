@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EPMS.Models.MenuModels;
+using IST.Models.MenuModels;
 
-namespace EPMS.Models.DomainModels
+namespace IST.Models.DomainModels
 {
     public partial class AspNetRole
     {

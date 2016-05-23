@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EPMS.Models.MenuModels;
+using IST.Models.MenuModels;
 
-namespace EPMS.Interfaces.Repository
+namespace IST.Interfaces.Repository
 {
     public interface IMenuRightRepository : IBaseRepository<MenuRight, int>
     {

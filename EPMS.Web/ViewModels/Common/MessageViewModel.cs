@@ -1,5 +1,5 @@
 ﻿
-namespace EPMS.Web.ViewModels.Common
+namespace IST.Web.ViewModels.Common
 {
     public class MessageViewModel
     {

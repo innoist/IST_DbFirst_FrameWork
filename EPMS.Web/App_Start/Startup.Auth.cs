@@ -1,5 +1,5 @@
-﻿using EPMS.Implementation.Identity;
-using EPMS.Models.IdentityModels;
+﻿using IST.Implementation.Identity;
+using IST.Models.IdentityModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -7,8 +7,8 @@ using Microsoft.Owin.Security.Cookies;
 using IdentitySample.Models;
 using Owin;
 using System;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.DomainModels;
+using IST.Models.IdentityModels;
+using IST.Models.DomainModels;
 
 namespace IdentitySample
 {

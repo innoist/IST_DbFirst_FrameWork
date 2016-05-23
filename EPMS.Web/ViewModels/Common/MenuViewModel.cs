@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EPMS.Models.MenuModels;
+using IST.Models.MenuModels;
 
-namespace EPMS.Web.ViewModels.Common
+namespace IST.Web.ViewModels.Common
 {
     /// <summary>
     /// Menu View Model

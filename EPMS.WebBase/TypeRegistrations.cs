@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using EPMS.WebBase.Mvc;
-using EPMS.WebBase.UnityConfiguration;
+using IST.WebBase.Mvc;
+using IST.WebBase.UnityConfiguration;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.WebBase
+namespace IST.WebBase
 {
     public static class TypeRegistrations
     {

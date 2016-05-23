@@ -1,7 +1,7 @@
 ﻿using System.Web.Http.Dependencies;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.WebBase.UnityConfiguration
+namespace IST.WebBase.UnityConfiguration
 {
     /// <summary>
     /// Unity dependency resolver

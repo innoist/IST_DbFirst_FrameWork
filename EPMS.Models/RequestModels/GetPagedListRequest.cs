@@ -1,4 +1,4 @@
-﻿namespace EPMS.Models.RequestModels
+﻿namespace IST.Models.RequestModels
 {
     public class GetPagedListRequest
     {

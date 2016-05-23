@@ -4,10 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using System.Web.Mvc;
-using EPMS.Interfaces.IServices;
+using IST.Interfaces.IServices;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.WebBase.Mvc
+namespace IST.WebBase.Mvc
 {
     /// <summary>
     /// Log Exception Filter Attribut

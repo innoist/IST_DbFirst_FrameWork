@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
-using EPMS.Models.DomainModels;
+using IST.Models.DomainModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EPMS.Models.IdentityModels.ViewModels
+namespace IST.Models.IdentityModels.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

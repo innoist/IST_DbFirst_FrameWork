@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using EPMS.Models.IdentityModels;
-using EPMS.Models.IdentityModels.ViewModels;
-using EPMS.Web.Models;
+using IST.Models.IdentityModels;
+using IST.Models.IdentityModels.ViewModels;
+using IST.Web.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EPMS.Web.ViewModels.Admin
+namespace IST.Web.ViewModels.Admin
 {
     public class UserViewModel
     {

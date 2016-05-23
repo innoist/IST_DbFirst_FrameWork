@@ -1,11 +1,11 @@
 ﻿using System.Data.Entity;
 using System.Linq;
-using EPMS.Interfaces.Repository;
-using EPMS.Models.MenuModels;
-using EPMS.Repository.BaseRepository;
+using IST.Interfaces.Repository;
+using IST.Models.MenuModels;
+using IST.Repository.BaseRepository;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.Repository.Repositories
+namespace IST.Repository.Repositories
 {
     /// <summary>
     /// Menu Repository

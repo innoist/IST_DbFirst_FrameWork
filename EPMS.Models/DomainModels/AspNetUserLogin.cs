@@ -1,4 +1,4 @@
-﻿namespace EPMS.Models.DomainModels
+﻿namespace IST.Models.DomainModels
 {
     public class AspNetUserLogin
     {

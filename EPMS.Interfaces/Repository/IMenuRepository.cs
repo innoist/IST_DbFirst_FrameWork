@@ -1,6 +1,6 @@
-﻿using EPMS.Models.MenuModels;
+﻿using IST.Models.MenuModels;
 
-namespace EPMS.Interfaces.Repository
+namespace IST.Interfaces.Repository
 {
     public interface IMenuRepository : IBaseRepository<Menu, int>
     {

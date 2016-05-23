@@ -1,8 +1,8 @@
 ﻿using System;
-using EPMS.Models.DomainModels;
+using IST.Models.DomainModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EPMS.Models.MenuModels
+namespace IST.Models.MenuModels
 {
     /// <summary>
     /// MenuRights class for menu assoication with role

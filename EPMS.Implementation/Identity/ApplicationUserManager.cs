@@ -4,15 +4,15 @@ using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using EPMS.Models.DomainModels;
-using EPMS.Repository.BaseRepository;
-using EPMS.Repository.Repositories;
+using IST.Models.DomainModels;
+using IST.Repository.BaseRepository;
+using IST.Repository.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.Implementation.Identity
+namespace IST.Implementation.Identity
 {
     /// <summary>
     /// Application User Manager

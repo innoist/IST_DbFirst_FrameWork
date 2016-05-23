@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EPMS.Web.Files
+namespace IST.Web.Files
 {
     public class PDFTextFieldType : PDFFieldType
     {

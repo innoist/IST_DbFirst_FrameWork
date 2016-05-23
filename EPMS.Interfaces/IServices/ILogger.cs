@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace EPMS.Interfaces.IServices
+namespace IST.Interfaces.IServices
 {
     /// <summary>
     /// Logger interface

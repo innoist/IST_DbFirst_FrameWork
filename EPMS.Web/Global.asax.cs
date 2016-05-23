@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.IO;
-using EPMS.WebBase;
-using EPMS.WebBase.UnityConfiguration;
+using IST.WebBase;
+using IST.WebBase.UnityConfiguration;
 using IdentitySample.Models;
 using System.Data.Entity;
 using System.Web.Mvc;
@@ -13,7 +13,7 @@ using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System.Web.Http;
-using UnityDependencyResolver = EPMS.WebBase.UnityConfiguration.UnityDependencyResolver;
+using UnityDependencyResolver = IST.WebBase.UnityConfiguration.UnityDependencyResolver;
 using System;
 using System.Web;
 
@@ -51,7 +51,7 @@ namespace IdentitySample
         private static void RegisterTypes()
         {
             TypeRegistrations.RegisterTypes(container);
-            EPMS.Implementation.TypeRegistrations.RegisterType(container);
+            IST.Implementation.TypeRegistrations.RegisterType(container);
 
         }
         /// <summary>

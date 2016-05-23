@@ -4,12 +4,12 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using EPMS.Interfaces.Repository;
-using EPMS.Models.DomainModels;
+using IST.Interfaces.Repository;
+using IST.Models.DomainModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.Repository.BaseRepository
+namespace IST.Repository.BaseRepository
 {
     /// <summary>
     /// Base Repository

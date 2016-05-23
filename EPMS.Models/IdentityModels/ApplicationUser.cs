@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EPMS.Models.IdentityModels
+namespace IST.Models.IdentityModels
 {
     /// <summary>
     /// Application User

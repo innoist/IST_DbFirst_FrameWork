@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace EPMS.Models.LoggerModels
+namespace IST.Models.LoggerModels
 {
     /// <summary>
     /// Log Category Class for database logging

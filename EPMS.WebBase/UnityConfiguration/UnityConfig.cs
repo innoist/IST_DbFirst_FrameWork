@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
 
-namespace EPMS.WebBase.UnityConfiguration
+namespace IST.WebBase.UnityConfiguration
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.
